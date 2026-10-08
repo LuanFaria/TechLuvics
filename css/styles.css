@@ -1089,14 +1089,38 @@ ul, ol { list-style: none; }
 .partners-card {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  gap: 2.5rem;
+  gap: 2rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 2.75rem;
+  padding: 2.25rem;
   align-items: center;
   backdrop-filter: blur(12px);
   transition: border-color 0.4s, box-shadow 0.4s;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.partners-content {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.partners-content .btn,
+.partners-content .btn-lg {
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  white-space: normal;
+  text-align: center;
+}
+
+.partners-visual {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .partners-card:hover {
@@ -1118,30 +1142,28 @@ ul, ol { list-style: none; }
 }
 
 .partners-rail {
-  display: flex;
-  gap: 0.75rem;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  width: 100%;
   max-width: 100%;
-  padding-bottom: 0.5rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
-.partners-rail::-webkit-scrollbar { display: none; }
-
 .partner-chip {
-  flex-shrink: 0;
-  padding: 1rem 1.25rem;
+  padding: 0.85rem 0.75rem;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   background: rgba(167, 139, 250, 0.07);
   border: 1px solid rgba(167, 139, 250, 0.18);
   border-radius: var(--radius-sm);
   color: var(--violet);
   transition: background 0.3s, transform 0.3s, border-color 0.3s;
-  min-width: 110px;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .partner-chip:hover {
@@ -1201,7 +1223,7 @@ ul, ol { list-style: none; }
 /* ===== Contact ===== */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.15rem;
 }
 
@@ -1338,10 +1360,19 @@ ul, ol { list-style: none; }
   .detail-content { grid-template-columns: 1fr; }
   .partners-card {
     grid-template-columns: 1fr;
-    padding: 1.75rem;
-    gap: 1.5rem;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 100%;
   }
-  .contact-grid { grid-template-columns: 1fr; }
+  .partners-content .btn-lg {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.9rem;
+  }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+
   .footer-inner { grid-template-columns: 1fr; }
   .footer-links { justify-content: flex-start; }
 
@@ -1397,15 +1428,17 @@ ul, ol { list-style: none; }
   .services-grid { grid-template-columns: 1fr; }
   .section { padding: 4.5rem 0; }
   .hero h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); }
-  .partners-card { padding: 1.35rem; }
-  .partners-content h3 { font-size: 1.3rem; }
+  .partners-card { padding: 1.25rem; }
+  .partners-content h3 { font-size: 1.25rem; word-wrap: break-word; }
+  .partners-content p { font-size: 0.95rem; }
   .partners-content .btn,
   .partners-content .btn-lg {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
   }
-  .partner-chip { min-width: 90px; padding: 0.75rem 1rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+
   .services-cta { padding: 1.5rem 1.15rem; }
   .services-cta .btn { width: 100%; max-width: 100%; box-sizing: border-box; }
 }
@@ -1416,6 +1449,8 @@ ul, ol { list-style: none; }
   .btn-lg { width: 100%; max-width: 100%; box-sizing: border-box; }
   .hero-stats { gap: 1.25rem; }
   .stat strong { font-size: 1.65rem; }
-  .partners-card { padding: 1.15rem; }
+  .partners-card { padding: 1rem; }
+  .partners-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
   .whatsapp-float { bottom: 1rem; right: 1rem; width: 50px; height: 50px; }
 }
