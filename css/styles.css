@@ -1329,7 +1329,6 @@ ul, ol { list-style: none; }
   color: var(--text-dim);
 }
 
-/* ===== Floating WhatsApp ===== */
 .whatsapp-float {
   position: fixed;
   bottom: 1.5rem;
@@ -1338,18 +1337,18 @@ ul, ol { list-style: none; }
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #25d366;
+  background: #22d3ee;                    /* era #25d366 */
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 24px rgba(34, 211, 238, 0.4);  /* era verde */
   transition: transform 0.3s var(--ease), box-shadow 0.3s;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 32px rgba(37, 211, 102, 0.55);
+  box-shadow: 0 6px 32px rgba(34, 211, 238, 0.55); /* era verde */
 }
 
 /* ===== Responsive ===== */
