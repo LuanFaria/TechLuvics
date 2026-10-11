@@ -74,33 +74,60 @@
 
   <!-- Hero -->
   <section class="hero" id="inicio">
-    <div class="container hero-content">
-      <p class="hero-badge">Soluções tecnológicas sob medida</p>
-      <h1>Deixa que a gente <span class="gradient-text">programa</span> pra você</h1>
-      <p class="hero-sub">
-        Sites, automações, sistemas de gestão e inteligência artificial para pequenos empresários e autônomos.
-        Resolvemos o seu problema — de verdade.
-      </p>
-      <div class="hero-ctas">
-        <a href="#" data-wa data-wa-msg="Olá! Vim pelo site da TechLuvics e quero saber mais." class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-          Falar no WhatsApp
-        </a>
-        <a href="#servicos" class="btn btn-ghost btn-lg">Ver soluções</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-badge">Soluções tecnológicas sob medida</p>
+        <h1>Deixa que a gente <span class="gradient-text">programa</span> pra você</h1>
+        <p class="hero-sub">
+          Sites, automações, sistemas de gestão e inteligência artificial para pequenos empresários e autônomos.
+          Resolvemos o seu problema — de verdade.
+        </p>
+        <div class="hero-ctas">
+          <a href="#" data-wa data-wa-msg="Olá! Vim pelo site da TechLuvics e quero saber mais." class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            Falar no WhatsApp
+          </a>
+          <a href="#servicos" class="btn btn-ghost btn-lg">Ver soluções</a>
+        </div>
+        <ul class="hero-stats">
+          <li class="stat">
+            <strong>15+</strong>
+            <span>Sistemas sob medida</span>
+          </li>
+          <li class="stat">
+            <strong>150+</strong>
+            <span>Clientes satisfeitos</span>
+          </li>
+          <li class="stat">
+            <strong>1 ano</strong>
+            <span>Suporte incluso</span>
+          </li>
+        </ul>
       </div>
-      <ul class="hero-stats">
-        <li class="stat">
-          <strong>15+</strong>
-          <span>Sistemas sob medida entregues</span>
-        </li>
-        <li class="stat">
-          <strong>300+</strong>
-          <span>Clientes satisfeitos</span>
-        </li>
-        <li class="stat">
-          <strong>1 ano</strong>
-          <span>Suporte técnico incluso</span>
-        </li>
-      </ul>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orb"></div>
+        <div class="hero-panel">
+          <div class="hero-panel-top">
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-panel-label">TechLuvics</span>
+          </div>
+          <div class="hero-panel-body">
+            <div class="hero-code-line"><span class="c-key">const</span> <span class="c-var">solucao</span> = <span class="c-str">"sob medida"</span>;</div>
+            <div class="hero-code-line"><span class="c-key">await</span> <span class="c-fn">entregar</span>(<span class="c-var">resultado</span>);</div>
+            <div class="hero-code-line"><span class="c-cm">// sites · automação · IA</span></div>
+          </div>
+          <div class="hero-chips">
+            <span>Sites</span>
+            <span>CrediLuvics</span>
+            <span>IA</span>
+            <span>WhatsApp</span>
+          </div>
+        </div>
+        <div class="hero-float hero-float-a">⚡ Rápido</div>
+        <div class="hero-float hero-float-b">🛡️ 1 ano suporte</div>
+        <div class="hero-float hero-float-c">💡 Sob medida</div>
+      </div>
     </div>
   </section>
 
@@ -112,7 +139,7 @@
         <h2>Não vendemos só software.<br />Resolvemos o seu problema.</h2>
         <p class="section-desc">
           A TechLuvics é uma empresa de soluções tecnológicas. Já entregamos mais de 15 sistemas sob medida
-          e atendemos mais de 300 clientes, mas o mais importante é entender a sua dor e construir a solução certa —
+          e atendemos mais de 150 clientes, mas o mais importante é entender a sua dor e construir a solução certa —
           seja um site, uma automação simples ou um sistema completo de gestão.
         </p>
       </div>
@@ -202,7 +229,7 @@
           <div class="service-detail" id="detail-sites" role="region" aria-labelledby="btn-sites">
             <div class="detail-content">
               <div class="detail-text">
-                <p>Criamos sites modernos, otimizados para celular e com design que transmite confiança. Landing pages, sites institucionais, portfólios e lojas virtuais simples.</p>
+                <p>Sites modernos, rápidos e responsivos — com design que transmite confiança e caminho claro para o visitante virar contato.</p>
                 <ul>
                   <li>Design responsivo (celular, tablet e desktop)</li>
                   <li>Carregamento rápido e SEO básico</li>
@@ -212,10 +239,23 @@
                 <p class="detail-cta">Ideal para quem quer presença digital sem complicação.</p>
               </div>
               <div class="detail-media">
-                <div class="media-placeholder">
-                  <span class="media-icon">▶</span>
-                  <span>Demonstração em breve</span>
-                  <small>Vídeo 5–10s sem áudio</small>
+                <div class="sites-portfolio">
+                  <a class="site-thumb" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener">
+                    <img src="img/packautoral.png" alt="Pack Autoral" loading="lazy" width="200" height="125" />
+                    <span>Pack Autoral</span>
+                  </a>
+                  <a class="site-thumb" href="https://luvics.com.br/pratinho/" target="_blank" rel="noopener">
+                    <img src="img/pratinho.png" alt="Pratinho" loading="lazy" width="200" height="125" />
+                    <span>Pratinho</span>
+                  </a>
+                  <a class="site-thumb" href="https://luvics.com.br/" target="_blank" rel="noopener">
+                    <img src="img/luvi.png" alt="Luvics" loading="lazy" width="200" height="125" />
+                    <span>Luvics</span>
+                  </a>
+                  <a class="site-thumb" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" target="_blank" rel="noopener">
+                    <img src="img/mariaduarte.png" alt="Maria Duarte" loading="lazy" width="200" height="125" />
+                    <span>Corretora de imóveis</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -258,10 +298,15 @@
                 <p class="tech-stack"><strong>Stack:</strong> Python · Streamlit · SQLite · Pandas</p>
               </div>
               <div class="detail-media">
-                <div class="media-placeholder media-agtech">
-                  <span class="media-icon">▶</span>
-                  <span>Demonstração em breve</span>
-                  <small>Vídeo 5–10s sem áudio</small>
+                <div class="media-video">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/2AFSxhDz0v8?mute=1&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;loop=1&amp;playlist=2AFSxhDz0v8&amp;iv_load_policy=3&amp;controls=1&amp;disablekb=0"
+                    title="Demonstração CrediLuvics"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -302,10 +347,23 @@
                 </ul>
               </div>
               <div class="detail-media">
-                <div class="media-placeholder media-invest">
-                  <span class="media-icon">▶</span>
-                  <span>Demonstração em breve</span>
-                  <small>Vídeo 5–10s sem áudio</small>
+                <!-- INVESTLUVICS: troque VIDEO_ID_INVEST pelo ID do YouTube -->
+                <div class="media-video" data-youtube-id="">
+                  <div class="media-placeholder media-invest">
+                    <span class="media-icon">▶</span>
+                    <span>Demonstração em breve</span>
+                    <small>Cole o link/ID do vídeo de InvestLuvics</small>
+                  </div>
+                  <!--
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/VIDEO_ID_INVEST?mute=1&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=VIDEO_ID_INVEST&iv_load_policy=3&controls=1"
+                    title="Demonstração InvestLuvics"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                  -->
                 </div>
               </div>
             </div>
@@ -314,67 +372,73 @@
       </div>
 
       <div class="featured-label reveal" style="margin-top: 3rem;">Outras soluções</div>
-      <div class="services-grid">
-        <article class="service-card reveal">
-          <div class="service-icon">📦</div>
-          <h3>Controle de Estoque</h3>
-          <p>Sistema leve para pequenas lojas e minimercados: entradas, saídas, alertas de mínimo e relatórios claros.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">✂️</div>
-          <h3>Barbearia Personalizada</h3>
-          <p>Agenda online, cadastro de clientes, serviços e histórico. Menos fila, mais organização e fidelização.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">🐾</div>
-          <h3>Petshop Personalizado</h3>
-          <p>Agenda de banhos e tosas, clientes e pets, lembretes e controle de serviços em um só lugar.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">🏥</div>
-          <h3>Clínica Personalizada</h3>
-          <p>Agenda, prontuário eletrônico e módulo financeiro. Atendimento mais profissional e seguro.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">🔧</div>
-          <h3>Oficina Smart</h3>
-          <p>Ordens de serviço, status em tempo real, peças e gestão de clientes para oficinas mecânicas.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">⚖️</div>
-          <h3>Sistema para Advogados</h3>
-          <p>Gestão de processos, prazos, clientes e documentos. Organize o escritório sem planilha bagunçada.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">🏢</div>
-          <h3>Gestão SaaS</h3>
-          <p>Painel de gestão para pequenas empresas: clientes, finanças e operações em formato SaaS sob medida.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">❓</div>
-          <h3>AskMe</h3>
-          <p>Plataforma de perguntas e respostas para comunidades, suporte ou engajamento interno da sua equipe.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">🍽️</div>
-          <h3>Cardápio Virtual</h3>
-          <p>Cardápio digital com QR Code para cafeterias e restaurantes. Atualize preços e itens em segundos.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">🤖</div>
-          <h3>Atendente de IA no WhatsApp</h3>
-          <p>Bot inteligente que responde clientes 24h, qualifica leads e agenda horários — o primeiro exemplo de que nossos sistemas funcionam.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">💰</div>
-          <h3>Preço que não dá prejuízo</h3>
-          <p>Análise financeira do seu negócio: descubra se está vendendo no prejuízo e qual o preço certo para cobrir custos e lucrar.</p>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">🎟️</div>
-          <h3>Plataforma de Rifas e Sorteios</h3>
-          <p>Sistema completo para criar, vender e gerenciar rifas e sorteios com transparência e controle de participantes.</p>
-        </article>
+      <div class="carousel reveal" id="outrasCarousel">
+        <button type="button" class="carousel-btn carousel-prev" aria-label="Anterior">‹</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <article class="service-card carousel-item">
+              <div class="service-icon">📦</div>
+              <h3>Controle de Estoque</h3>
+              <p>Sistema leve para pequenas lojas e minimercados: entradas, saídas, alertas de mínimo e relatórios claros.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">✂️</div>
+              <h3>Barbearia Personalizada</h3>
+              <p>Agenda online, cadastro de clientes, serviços e histórico. Menos fila, mais organização e fidelização.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">🐾</div>
+              <h3>Petshop Personalizado</h3>
+              <p>Agenda de banhos e tosas, clientes e pets, lembretes e controle de serviços em um só lugar.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">🏥</div>
+              <h3>Clínica Personalizada</h3>
+              <p>Agenda, prontuário eletrônico e módulo financeiro. Atendimento mais profissional e seguro.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">🔧</div>
+              <h3>Oficina Smart</h3>
+              <p>Ordens de serviço, status em tempo real, peças e gestão de clientes para oficinas mecânicas.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">⚖️</div>
+              <h3>Sistema para Advogados</h3>
+              <p>Gestão de processos, prazos, clientes e documentos. Organize o escritório sem planilha bagunçada.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">🏢</div>
+              <h3>Gestão SaaS</h3>
+              <p>Painel de gestão para pequenas empresas: clientes, finanças e operações em formato SaaS sob medida.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">❓</div>
+              <h3>AskMe</h3>
+              <p>Plataforma de perguntas e respostas para comunidades, suporte ou engajamento interno da sua equipe.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">🍽️</div>
+              <h3>Cardápio Virtual</h3>
+              <p>Cardápio digital com QR Code para cafeterias e restaurantes. Atualize preços e itens em segundos.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">🤖</div>
+              <h3>Atendente de IA no WhatsApp</h3>
+              <p>Bot inteligente que responde clientes 24h, qualifica leads e agenda horários — o primeiro exemplo de que nossos sistemas funcionam.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">💰</div>
+              <h3>Preço que não dá prejuízo</h3>
+              <p>Análise financeira do seu negócio: descubra se está vendendo no prejuízo e qual o preço certo para cobrir custos e lucrar.</p>
+            </article>
+            <article class="service-card carousel-item">
+              <div class="service-icon">🎟️</div>
+              <h3>Plataforma de Rifas e Sorteios</h3>
+              <p>Sistema completo para criar, vender e gerenciar rifas e sorteios com transparência e controle de participantes.</p>
+            </article>
+          </div>
+        </div>
+        <button type="button" class="carousel-btn carousel-next" aria-label="Próximo">›</button>
       </div>
 
       <div class="services-cta reveal">
