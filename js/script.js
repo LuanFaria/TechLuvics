@@ -188,4 +188,42 @@
 
   // ===== Soft card hover (lift + glow only — no aggressive tilt) =====
   // Handled purely by CSS for smoother performance
+
+
+  // ===== Carousel Outras soluções (contínuo) =====
+  (function () {
+    var root = document.getElementById("outrasCarousel");
+    if (!root) return;
+
+    var track = root.querySelector(".carousel-track");
+    var prev = root.querySelector(".carousel-prev");
+    var next = root.querySelector(".carousel-next");
+    if (!track) return;
+
+    // Duplica os cards → loop sem salto (animação vai de 0 a -50%)
+    track.innerHTML = track.innerHTML + track.innerHTML;
+    track.classList.add("is-ready");
+
+    function pause() { track.classList.add("is-paused"); }
+    function resume() { track.classList.remove("is-paused"); }
+
+    root.addEventListener("mouseenter", pause);
+    root.addEventListener("mouseleave", resume);
+    root.addEventListener("touchstart", pause, { passive: true });
+    root.addEventListener("touchend", function () {
+      setTimeout(resume, 2000);
+    }, { passive: true });
+
+    // Setas: pausam 2s (o fluxo contínuo é o principal)
+    function bump() {
+      pause();
+      setTimeout(resume, 2000);
+    }
+    if (next) next.addEventListener("click", bump);
+    if (prev) prev.addEventListener("click", bump);
+  })();
+
+
+
+
 })();
