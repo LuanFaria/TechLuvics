@@ -77,10 +77,13 @@
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="hero-badge">Soluções tecnológicas sob medida</p>
-        <h1>Deixa que a gente <span class="gradient-text">programa</span> pra você</h1>
+        <h1 class="hero-title" id="heroTitle">
+          <span class="hero-title-fallback">Deixa que a gente <span class="gradient-text">programa</span> pra você</span>
+          <canvas class="hero-tech-canvas" id="heroTechCanvas" aria-hidden="true"></canvas>
+        </h1>
+        <p class="hero-role">Soluções que <span class="hero-role-word" id="heroRole">entregam</span> de verdade.</p>
         <p class="hero-sub">
           Sites, automações, sistemas de gestão e inteligência artificial para pequenos empresários e autônomos.
-          Resolvemos o seu problema — de verdade.
         </p>
         <div class="hero-ctas">
           <a href="#" data-wa data-wa-msg="Olá! Vim pelo site da TechLuvics e quero saber mais." class="btn btn-primary btn-lg" target="_blank" rel="noopener">
@@ -124,9 +127,9 @@
             <span>WhatsApp</span>
           </div>
         </div>
-        <div class="hero-float hero-float-a">⚡ Rápido</div>
-        <div class="hero-float hero-float-b">🛡️ 1 ano suporte</div>
-        <div class="hero-float hero-float-c">💡 Sob medida</div>
+        <div class="hero-float hero-float-a"><span>Rápido</span></div>
+        <div class="hero-float hero-float-b"><span>1 ano de suporte</span></div>
+        <div class="hero-float hero-float-c"><span>Sob medida</span></div>
       </div>
     </div>
   </section>
@@ -143,22 +146,30 @@
           seja um site, uma automação simples ou um sistema completo de gestão.
         </p>
       </div>
-      <div class="about-grid">
-        <div class="about-card reveal">
-          <div class="about-icon">💡</div>
-          <h3>Foco no resultado</h3>
-          <p>Não empurramos produto pronto. Conversamos, entendemos e só então propomos o que realmente resolve.</p>
-        </div>
-        <div class="about-card reveal">
-          <div class="about-icon">⚡</div>
-          <h3>Rápido e direto</h3>
-          <p>Atendimento via WhatsApp, reunião objetiva e prazo combinado. Sem enrolação.</p>
-        </div>
-        <div class="about-card reveal">
-          <div class="about-icon">🛡️</div>
-          <h3>Suporte de 1 ano</h3>
-          <p>Depois da entrega, você tem um ano de assistência técnica inclusa. Estamos junto.</p>
-        </div>
+            <div class="about-grid benefits-grid">
+        <article class="benefit-card benefit-card--left reveal">
+          <canvas class="benefit-particles" aria-hidden="true"></canvas>
+          <div class="benefit-blob benefit-blob--left" aria-hidden="true"></div>
+          <div class="benefit-inner">
+            <h3>Foco no<br />resultado</h3>
+            <p>Não empurramos produto pronto. Conversamos, entendemos e só então propomos o que realmente resolve o seu problema.</p>
+          </div>
+        </article>
+        <article class="benefit-card benefit-card--center reveal">
+          <canvas class="benefit-particles" aria-hidden="true"></canvas>
+          <div class="benefit-inner benefit-inner--center">
+            <h3>Rápido e<br />direto</h3>
+            <p>Atendimento via WhatsApp, reunião objetiva e prazo combinado. Sem enrolação.</p>
+          </div>
+        </article>
+        <article class="benefit-card benefit-card--right reveal">
+          <canvas class="benefit-particles" aria-hidden="true"></canvas>
+          <div class="benefit-blob benefit-blob--right" aria-hidden="true"></div>
+          <div class="benefit-inner">
+            <h3>Suporte de<br />1 ano</h3>
+            <p>Depois da entrega, você tem um ano de assistência técnica inclusa. Ajustes, dúvidas e acompanhamento — estamos junto.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -171,31 +182,51 @@
         <h2>Como funciona</h2>
         <p class="section-desc">Do primeiro “oi” no WhatsApp até a entrega e o suporte — tudo transparente.</p>
       </div>
-      <ol class="steps">
-        <li class="step reveal">
-          <div class="step-num" aria-hidden="true">1</div>
-          <h3>Mensagem no WhatsApp</h3>
-          <p>Você nos chama. Conta o que precisa (mesmo que ainda esteja confuso). Respondemos rápido.</p>
+            <ol class="steps">
+        <li class="step holo-step reveal">
+          <div class="holo-step-glow" aria-hidden="true"></div>
+          <div class="holo-step-shine" aria-hidden="true"></div>
+          <div class="holo-step-body">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h3>Mensagem no WhatsApp</h3>
+            <p>Você nos chama. Conta o que precisa (mesmo que ainda esteja confuso). Respondemos rápido.</p>
+          </div>
         </li>
-        <li class="step reveal">
-          <div class="step-num" aria-hidden="true">2</div>
-          <h3>Reunião rápida</h3>
-          <p>Marcamos um horário (online ou presencial) para entender a fundo o problema e o contexto do seu negócio.</p>
+        <li class="step holo-step reveal">
+          <div class="holo-step-glow" aria-hidden="true"></div>
+          <div class="holo-step-shine" aria-hidden="true"></div>
+          <div class="holo-step-body">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h3>Reunião rápida</h3>
+            <p>Marcamos um horário (online ou presencial) para entender a fundo o problema e o contexto do seu negócio.</p>
+          </div>
         </li>
-        <li class="step reveal">
-          <div class="step-num" aria-hidden="true">3</div>
-          <h3>Viabilidade & proposta</h3>
-          <p>Analisamos se faz sentido para a gente. Se sim, combinamos prazo e preço conforme a complexidade do projeto.</p>
+        <li class="step holo-step reveal">
+          <div class="holo-step-glow" aria-hidden="true"></div>
+          <div class="holo-step-shine" aria-hidden="true"></div>
+          <div class="holo-step-body">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h3>Viabilidade & proposta</h3>
+            <p>Analisamos se faz sentido para a gente. Se sim, combinamos prazo e preço conforme a complexidade do projeto.</p>
+          </div>
         </li>
-        <li class="step reveal">
-          <div class="step-num" aria-hidden="true">4</div>
-          <h3>Desenvolvimento</h3>
-          <p>Construímos, testamos e entregamos. Você acompanha o progresso.</p>
+        <li class="step holo-step reveal">
+          <div class="holo-step-glow" aria-hidden="true"></div>
+          <div class="holo-step-shine" aria-hidden="true"></div>
+          <div class="holo-step-body">
+            <div class="step-num" aria-hidden="true">4</div>
+            <h3>Desenvolvimento</h3>
+            <p>Construímos, testamos e entregamos. Você acompanha o progresso.</p>
+          </div>
         </li>
-        <li class="step reveal">
-          <div class="step-num" aria-hidden="true">5</div>
-          <h3>1 ano de suporte</h3>
-          <p>Assistência técnica inclusa por 12 meses. Ajustes, dúvidas e acompanhamento.</p>
+        <li class="step holo-step reveal">
+          <div class="holo-step-glow" aria-hidden="true"></div>
+          <div class="holo-step-shine" aria-hidden="true"></div>
+          <div class="holo-step-body">
+            <div class="step-num" aria-hidden="true">5</div>
+            <h3>1 ano de suporte</h3>
+            <p>Assistência técnica inclusa por 12 meses. Ajustes, dúvidas e acompanhamento.</p>
+          </div>
         </li>
       </ol>
     </div>
@@ -247,26 +278,166 @@
                   <li>Portfólio para mostrar trabalhos e serviços</li>
                   <li>Página simples de vendas ou captura de leads</li>
                 </ul>
-                <p class="detail-cta">Ideal para quem quer presença digital sem complicação.</p>
+                <p class="detail-cta">Para quem quer um site sério, sem dor de cabeça técnica.</p>
               </div>
               <div class="detail-media">
-                <div class="sites-portfolio">
-                  <a class="site-thumb" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener">
-                    <img src="img/packautoral.png" alt="Pack Autoral" loading="lazy" width="200" height="125" />
-                    <span>Pack Autoral</span>
-                  </a>
-                  <a class="site-thumb" href="https://luvics.com.br/pratinho/" target="_blank" rel="noopener">
-                    <img src="img/pratinho.png" alt="Pratinho" loading="lazy" width="200" height="125" />
-                    <span>Pratinho</span>
-                  </a>
-                  <a class="site-thumb" href="https://luvics.com.br/" target="_blank" rel="noopener">
-                    <img src="img/luvi.png" alt="Luvics" loading="lazy" width="200" height="125" />
-                    <span>Luvics</span>
-                  </a>
-                  <a class="site-thumb" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" target="_blank" rel="noopener">
-                    <img src="img/mariaduarte.png" alt="Maria Duarte" loading="lazy" width="200" height="125" />
-                    <span>Corretora de imóveis</span>
-                  </a>
+                                <div class="reel-gallery" aria-label="Sites desenvolvidos">
+                  <div class="reel-col reel-col--up">
+                    <div class="reel-track">
+                      <a class="reel-card" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener">
+                        <img src="img/pack-autoral.png" alt="Pack Autoral" loading="lazy" />
+                        <span>Pack Autoral</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pratinho/" target="_blank" rel="noopener">
+                        <img src="img/pratinho.png" alt="Pratinho" loading="lazy" />
+                        <span>Pratinho</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/" target="_blank" rel="noopener">
+                        <img src="img/luvi.png" alt="Luvics" loading="lazy" />
+                        <span>Luvics</span>
+                      </a>
+                      <a class="reel-card" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" target="_blank" rel="noopener">
+                        <img src="img/mariaduarte.png" alt="Maria Duarte" loading="lazy" />
+                        <span>Maria Duarte</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" aria-disabled="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 5</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" aria-disabled="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 6</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pack_autoral/" tabindex="-1" aria-hidden="true">
+                        <img src="img/pack-autoral.png" alt="" loading="lazy" />
+                        <span>Pack Autoral</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pratinho/" tabindex="-1" aria-hidden="true">
+                        <img src="img/pratinho.png" alt="" loading="lazy" />
+                        <span>Pratinho</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/" tabindex="-1" aria-hidden="true">
+                        <img src="img/luvi.png" alt="" loading="lazy" />
+                        <span>Luvics</span>
+                      </a>
+                      <a class="reel-card" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" tabindex="-1" aria-hidden="true">
+                        <img src="img/mariaduarte.png" alt="" loading="lazy" />
+                        <span>Maria Duarte</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" tabindex="-1" aria-hidden="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 5</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" tabindex="-1" aria-hidden="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 6</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="reel-col reel-col--down">
+                    <div class="reel-track">
+                      <a class="reel-card" href="https://luvics.com.br/" target="_blank" rel="noopener">
+                        <img src="img/luvi.png" alt="Luvics" loading="lazy" />
+                        <span>Luvics</span>
+                      </a>
+                      <a class="reel-card" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" target="_blank" rel="noopener">
+                        <img src="img/mariaduarte.png" alt="Maria Duarte" loading="lazy" />
+                        <span>Maria Duarte</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" aria-disabled="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 5</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" aria-disabled="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 6</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener">
+                        <img src="img/pack-autoral.png" alt="Pack Autoral" loading="lazy" />
+                        <span>Pack Autoral</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pratinho/" target="_blank" rel="noopener">
+                        <img src="img/pratinho.png" alt="Pratinho" loading="lazy" />
+                        <span>Pratinho</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/" tabindex="-1" aria-hidden="true">
+                        <img src="img/luvi.png" alt="" loading="lazy" />
+                        <span>Luvics</span>
+                      </a>
+                      <a class="reel-card" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" tabindex="-1" aria-hidden="true">
+                        <img src="img/mariaduarte.png" alt="" loading="lazy" />
+                        <span>Maria Duarte</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" tabindex="-1" aria-hidden="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 5</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" tabindex="-1" aria-hidden="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 6</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pack_autoral/" tabindex="-1" aria-hidden="true">
+                        <img src="img/pack-autoral.png" alt="" loading="lazy" />
+                        <span>Pack Autoral</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pratinho/" tabindex="-1" aria-hidden="true">
+                        <img src="img/pratinho.png" alt="" loading="lazy" />
+                        <span>Pratinho</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="reel-col reel-col--up">
+                    <div class="reel-track">
+                      <a class="reel-card reel-card--soon" href="#" aria-disabled="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 5</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" aria-disabled="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 6</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener">
+                        <img src="img/pack-autoral.png" alt="Pack Autoral" loading="lazy" />
+                        <span>Pack Autoral</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pratinho/" target="_blank" rel="noopener">
+                        <img src="img/pratinho.png" alt="Pratinho" loading="lazy" />
+                        <span>Pratinho</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/" target="_blank" rel="noopener">
+                        <img src="img/luvi.png" alt="Luvics" loading="lazy" />
+                        <span>Luvics</span>
+                      </a>
+                      <a class="reel-card" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" target="_blank" rel="noopener">
+                        <img src="img/mariaduarte.png" alt="Maria Duarte" loading="lazy" />
+                        <span>Maria Duarte</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" tabindex="-1" aria-hidden="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 5</span>
+                      </a>
+                      <a class="reel-card reel-card--soon" href="#" tabindex="-1" aria-hidden="true">
+                        <span class="reel-soon">Em breve</span>
+                        <span>Projeto 6</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pack_autoral/" tabindex="-1" aria-hidden="true">
+                        <img src="img/pack-autoral.png" alt="" loading="lazy" />
+                        <span>Pack Autoral</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/pratinho/" tabindex="-1" aria-hidden="true">
+                        <img src="img/pratinho.png" alt="" loading="lazy" />
+                        <span>Pratinho</span>
+                      </a>
+                      <a class="reel-card" href="https://luvics.com.br/" tabindex="-1" aria-hidden="true">
+                        <img src="img/luvi.png" alt="" loading="lazy" />
+                        <span>Luvics</span>
+                      </a>
+                      <a class="reel-card" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" tabindex="-1" aria-hidden="true">
+                        <img src="img/mariaduarte.png" alt="" loading="lazy" />
+                        <span>Maria Duarte</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -382,79 +553,82 @@
         </article>
       </div>
 
-      <div class="featured-label reveal" style="margin-top: 3rem;">Outras soluções</div>
-      <div class="carousel reveal" id="outrasCarousel">
-        <button type="button" class="carousel-btn carousel-prev" aria-label="Anterior">‹</button>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <article class="service-card carousel-item">
+            <div class="featured-label reveal" style="margin-top: 3rem;">Outras soluções</div>
+      <div class="cc-wrap reveal" id="outrasCarousel">
+        <button type="button" class="cc-btn cc-prev" aria-label="Anterior">‹</button>
+        <div class="cc-stage">
+          <div class="cc-ring">
+            <article class="cc-card service-card">
               <div class="service-icon">📦</div>
               <h3>Controle de Estoque</h3>
               <p>Sistema leve para pequenas lojas e minimercados: entradas, saídas, alertas de mínimo e relatórios claros.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">✂️</div>
               <h3>Barbearia Personalizada</h3>
               <p>Agenda online, cadastro de clientes, serviços e histórico. Menos fila, mais organização e fidelização.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">🐾</div>
               <h3>Petshop Personalizado</h3>
               <p>Agenda de banhos e tosas, clientes e pets, lembretes e controle de serviços em um só lugar.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">🏥</div>
               <h3>Clínica Personalizada</h3>
               <p>Agenda, prontuário eletrônico e módulo financeiro. Atendimento mais profissional e seguro.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">🔧</div>
               <h3>Oficina Smart</h3>
               <p>Ordens de serviço, status em tempo real, peças e gestão de clientes para oficinas mecânicas.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">⚖️</div>
               <h3>Sistema para Advogados</h3>
               <p>Gestão de processos, prazos, clientes e documentos. Organize o escritório sem planilha bagunçada.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">🏢</div>
               <h3>Gestão SaaS</h3>
               <p>Painel de gestão para pequenas empresas: clientes, finanças e operações em formato SaaS sob medida.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">❓</div>
               <h3>AskMe</h3>
               <p>Plataforma de perguntas e respostas para comunidades, suporte ou engajamento interno da sua equipe.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">🍽️</div>
               <h3>Cardápio Virtual</h3>
               <p>Cardápio digital com QR Code para cafeterias e restaurantes. Atualize preços e itens em segundos.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">🤖</div>
               <h3>Atendente de IA no WhatsApp</h3>
-              <p>Bot inteligente que responde clientes 24h, qualifica leads e agenda horários — o primeiro exemplo de que nossos sistemas funcionam.</p>
+              <p>Bot inteligente que responde clientes 24h, qualifica leads e agenda horários.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">💰</div>
               <h3>Preço que não dá prejuízo</h3>
-              <p>Análise financeira do seu negócio: descubra se está vendendo no prejuízo e qual o preço certo para cobrir custos e lucrar.</p>
+              <p>Análise financeira do seu negócio: descubra o preço certo para cobrir custos e lucrar.</p>
             </article>
-            <article class="service-card carousel-item">
+            <article class="cc-card service-card">
               <div class="service-icon">🎟️</div>
               <h3>Plataforma de Rifas e Sorteios</h3>
-              <p>Sistema completo para criar, vender e gerenciar rifas e sorteios com transparência e controle de participantes.</p>
+              <p>Sistema completo para criar, vender e gerenciar rifas e sorteios com transparência.</p>
             </article>
           </div>
         </div>
-        <button type="button" class="carousel-btn carousel-next" aria-label="Próximo">›</button>
+        <button type="button" class="cc-btn cc-next" aria-label="Próximo">›</button>
       </div>
 
       <div class="services-cta reveal">
-        <p>Não achou exatamente o que precisa? <strong>Conte o seu problema.</strong> Talvez a gente já tenha a solução — ou construa uma.</p>
-        <a href="#" data-wa data-wa-msg="Olá! Tenho um problema e quero saber se a TechLuvics consegue resolver." class="btn btn-primary" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <canvas class="cta-particles" aria-hidden="true"></canvas>
+        <div class="services-cta-inner">
+          <p>Não achou exatamente o que precisa? <strong>Conte o seu problema.</strong> Talvez a gente já tenha a solução — ou construa uma.</p>
+          <a href="#" data-wa data-wa-msg="Olá! Tenho um problema e quero saber se a TechLuvics consegue resolver." class="btn btn-primary" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
@@ -471,7 +645,9 @@
         </p>
       </div>
       <div class="partners-card reveal">
+        <canvas class="partners-particles" aria-hidden="true"></canvas>
         <div class="partners-content">
+          <span class="partners-tag">Ecossistema</span>
           <h3>Explore o catálogo Luvics</h3>
           <p>Produtos de diversos segmentos, prontos para assinatura ou uso. Enquanto você descobre soluções de parceiros, vê na prática a qualidade do nosso trabalho.</p>
           <a href="https://luvics.com.br/" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
