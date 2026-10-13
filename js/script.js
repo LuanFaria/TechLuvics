@@ -31,7 +31,8 @@
   if (canvas) {
     const ctx = canvas.getContext("2d");
     let w, h, particles = [];
-    const COUNT = 55;
+    const isMobile = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+    const COUNT = isMobile ? 28 : 55;
 
     function resize() {
       w = canvas.width = window.innerWidth;
@@ -202,19 +203,24 @@
 
     var n = cards.length;
     var step = 360 / n;
-    var cardW = window.innerWidth <= 720 ? 170 : 200;
-    var radius = Math.max(360, (cardW + 80) / (2 * Math.sin(Math.PI / n)));
+    var mobile = window.innerWidth <= 768;
+    var cardW = mobile ? 160 : 200;
+    var radius = Math.max(mobile ? 280 : 360, (cardW + (mobile ? 40 : 80)) / (2 * Math.sin(Math.PI / n)));
     var angle = 0;
-    var speed = 0.045; // bem lento para dar tempo de ler
+    // mobile: mais rápido (menos “travado”); desktop continua legível
+    var speed = mobile ? 0.14 : 0.05;
     var paused = false;
     var dragging = false;
     var lastX = 0;
     var vel = 0;
+    var onScreen = true;
     var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function layout() {
-      cardW = window.innerWidth <= 720 ? 170 : 200;
-      radius = Math.max(360, (cardW + 80) / (2 * Math.sin(Math.PI / Math.max(n, 3))));
+      mobile = window.innerWidth <= 768;
+      cardW = mobile ? 160 : 200;
+      radius = Math.max(mobile ? 280 : 360, (cardW + (mobile ? 40 : 80)) / (2 * Math.sin(Math.PI / Math.max(n, 3))));
+      speed = mobile ? 0.14 : 0.05;
       for (var i = 0; i < n; i++) {
         var a = i * step;
         cards[i].style.transform =
@@ -227,6 +233,10 @@
     }
 
     function tick() {
+      if (!onScreen) {
+        requestAnimationFrame(tick);
+        return;
+      }
       if (!reduced && !paused && !dragging) {
         angle += speed + vel;
         vel *= 0.95;
@@ -243,6 +253,16 @@
     render();
     if (!reduced) requestAnimationFrame(tick);
     else render();
+
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(
+        function (entries) {
+          onScreen = entries[0] && entries[0].isIntersecting;
+        },
+        { threshold: 0.05 }
+      );
+      io.observe(root);
+    }
 
     window.addEventListener("resize", function () {
       layout();
@@ -317,7 +337,11 @@
     var reduced =
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) return;
+    var isMobile =
+      (window.matchMedia && window.matchMedia("(max-width: 768px)").matches) ||
+      (window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+    // No celular: título HTML estático (muito mais leve)
+    if (reduced || isMobile) return;
 
     var ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -599,7 +623,15 @@
       var particles = [];
       var mouse = { x: -9999, y: -9999, inside: false };
       var w = 0, h = 0, dpr = 1;
-      var COUNT = card.classList.contains("benefit-card") ? 55 : 40;
+      var mobileP =
+        window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+      var COUNT = mobileP
+        ? card.classList.contains("benefit-card")
+          ? 22
+          : 16
+        : card.classList.contains("benefit-card")
+          ? 55
+          : 40;
 
       function resize() {
         var rect = card.getBoundingClientRect();
@@ -747,3 +779,238 @@
   })();
 
 })();
+
+
+  // ===== Bounce cards (sites) — 3 em cima + 2 embaixo, dentro do card =====
+  (function () {
+    var root = document.querySelector("[data-bounce]");
+    if (!root) return;
+    var els = Array.prototype.slice.call(root.querySelectorAll(".bounce-cards__card"));
+    if (!els.length) return;
+
+    var PATTERN = [1, 0.5, -0.3, -1, 0.2];
+    var count = els.length;
+    var reduce =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var hoverScale = 1.06;
+    var bounciness = 0.6;
+    var delay = 0.35;
+    var stagger = 0.06;
+    var pushDistance = 28;
+
+    function layoutSlots() {
+      var mobile = window.innerWidth <= 720;
+      var cardSize = mobile ? 120 : 150;
+      var gapX = mobile ? 78 : 105;
+      var gapY = mobile ? 72 : 95;
+      // 3 top (indices 0,1,2), 2 bottom centered (3,4)
+      // coords relative to center of container
+      var topY = -gapY * 0.55;
+      var botY = gapY * 0.55;
+      var positions = [
+        { x: -gapX, y: topY },
+        { x: 0, y: topY },
+        { x: gapX, y: topY },
+        { x: -gapX * 0.55, y: botY },
+        { x: gapX * 0.55, y: botY }
+      ];
+      root.style.setProperty("--bounce-cards-size", cardSize + "px");
+      return positions.map(function (p, i) {
+        return {
+          x: p.x,
+          y: p.y,
+          rotate: 8 * PATTERN[i % PATTERN.length],
+          size: cardSize
+        };
+      });
+    }
+
+    var slots = layoutSlots();
+    var cardSize = slots[0].size;
+
+    var bodies = els.map(function (_, i) {
+      return {
+        x: slots[i].x,
+        y: slots[i].y,
+        rotate: slots[i].rotate,
+        scale: reduce ? 1 : 0,
+        vx: 0,
+        vy: 0,
+        vr: 0,
+        vs: 0,
+        born: 0
+      };
+    });
+
+    var state = { hovered: -1, time: 0, layer: -1 };
+    var raf = 0;
+    var last = performance.now();
+    var alive = true;
+
+    function step(value, velocity, target, stiffness, damping, dt) {
+      var next = velocity + ((target - value) * stiffness - velocity * damping) * dt;
+      return [value + next * dt, next];
+    }
+
+    function frame(now) {
+      raf = 0;
+      if (!alive) return;
+      var dt = Math.min(1 / 30, Math.max(1 / 240, (now - last) / 1000));
+      last = now;
+      state.time += dt;
+
+      var hovered = state.hovered;
+      var popStiffness = 170;
+      var popDamping = 2 * (1 - 0.85 * bounciness) * Math.sqrt(popStiffness);
+      var moveStiffness = 220;
+      var moveDamping = 2 * (reduce ? 1 : 0.72) * Math.sqrt(moveStiffness);
+      var substeps = Math.ceil(dt / (1 / 240));
+      var h = dt / substeps;
+      var moving = 0;
+
+      for (var i = 0; i < count; i++) {
+        var el = els[i];
+        var card = bodies[i];
+        var slot = slots[i];
+        var appeared = reduce || state.time - card.born >= delay + i * stagger;
+        var targetX = slot.x;
+        var targetY = slot.y;
+        var targetRotate = slot.rotate;
+        var targetScale = appeared ? 1 : 0;
+        if (hovered >= 0 && appeared) {
+          if (i === hovered) {
+            targetY = slot.y - 10;
+            targetRotate = 0;
+            targetScale = hoverScale;
+          } else {
+            // leve afastamento sem sair do card
+            var dx = slot.x - slots[hovered].x;
+            var dy = slot.y - slots[hovered].y;
+            var len = Math.sqrt(dx * dx + dy * dy) || 1;
+            targetX = slot.x + (dx / len) * pushDistance;
+            targetY = slot.y + (dy / len) * (pushDistance * 0.35);
+          }
+        }
+        for (var k = 0; k < substeps; k++) {
+          var sx = step(card.x, card.vx, targetX, moveStiffness, moveDamping, h);
+          card.x = sx[0];
+          card.vx = sx[1];
+          var sy = step(card.y, card.vy, targetY, moveStiffness, moveDamping, h);
+          card.y = sy[0];
+          card.vy = sy[1];
+          var sr = step(card.rotate, card.vr, targetRotate, moveStiffness, moveDamping, h);
+          card.rotate = sr[0];
+          card.vr = sr[1];
+          if (reduce) {
+            card.scale = targetScale;
+            card.vs = 0;
+          } else {
+            var ss = step(card.scale, card.vs, targetScale, popStiffness, popDamping, h);
+            card.scale = ss[0];
+            card.vs = ss[1];
+          }
+        }
+        moving +=
+          Math.abs(card.vx) +
+          Math.abs(card.vy) +
+          Math.abs(card.vr) +
+          Math.abs(card.vs) * 100 +
+          Math.abs(targetX - card.x) +
+          Math.abs(targetY - card.y) +
+          (appeared ? 0 : 1);
+        el.style.transform =
+          "translate(-50%, -50%) translate3d(" +
+          card.x.toFixed(2) +
+          "px, " +
+          card.y.toFixed(2) +
+          "px, 0) rotate(" +
+          card.rotate.toFixed(3) +
+          "deg) scale(" +
+          Math.max(0, card.scale).toFixed(4) +
+          ")";
+      }
+
+      if (state.layer !== hovered) {
+        state.layer = hovered;
+        els.forEach(function (el, i) {
+          el.style.zIndex = i === hovered ? String(count + 1) : String(i + 1);
+          if (i === hovered) el.setAttribute("data-active", "");
+          else el.removeAttribute("data-active");
+        });
+      }
+
+      if (moving > 0.02) raf = requestAnimationFrame(frame);
+    }
+
+    function wake() {
+      if (raf || !alive) return;
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+
+    function pick(event) {
+      var rect = root.getBoundingClientRect();
+      var px = event.clientX - rect.left - rect.width / 2;
+      var py = event.clientY - rect.top - rect.height / 2;
+      var best = -1;
+      var bestDist = Infinity;
+      slots.forEach(function (slot, i) {
+        var dx = px - slot.x;
+        var dy = py - slot.y;
+        var d = dx * dx + dy * dy;
+        if (d < bestDist) {
+          bestDist = d;
+          best = i;
+        }
+      });
+      if (best < 0) return -1;
+      var half = cardSize * 0.55;
+      if (Math.sqrt(bestDist) > half) return -1;
+      return best;
+    }
+
+    root.addEventListener("pointermove", function (e) {
+      var next = pick(e);
+      if (next !== state.hovered) {
+        state.hovered = next;
+        wake();
+      }
+    });
+    root.addEventListener("pointerleave", function () {
+      if (state.hovered !== -1) {
+        state.hovered = -1;
+        wake();
+      }
+    });
+
+    window.addEventListener(
+      "resize",
+      function () {
+        slots = layoutSlots();
+        cardSize = slots[0].size;
+        wake();
+      },
+      { passive: true }
+    );
+
+    if ("IntersectionObserver" in window) {
+      var seen = false;
+      var io = new IntersectionObserver(
+        function (entries) {
+          if (entries[0] && entries[0].isIntersecting && !seen) {
+            seen = true;
+            bodies.forEach(function (b) {
+              b.born = state.time;
+            });
+            wake();
+          }
+        },
+        { threshold: 0.15 }
+      );
+      io.observe(root);
+    } else {
+      wake();
+    }
+  })();
