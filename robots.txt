@@ -1,0 +1,12 @@
+# TechLuvics — https://tech.luvics.com.br/
+# Site estático de página única. Permitimos rastreamento público para busca.
+# Não bloqueamos CSS, JS nem imagens (necessários à renderização).
+
+User-agent: *
+Allow: /
+
+# Sitemap oficial
+Sitemap: https://tech.luvics.com.br/sitemap.xml
+
+# Observação: não usamos robots.txt para autenticação.
+# Não há áreas administrativas neste projeto estático.

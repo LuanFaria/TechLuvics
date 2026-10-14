@@ -1,0 +1,53 @@
+# TechLuvics
+
+> Soluções tecnológicas sob medida: sites, automações, sistemas de gestão e inteligência artificial para pequenos empresários e autônomos.
+
+## Sobre
+
+A TechLuvics desenvolve software e sites sob medida. O foco é entender o problema do cliente e construir a solução certa — não vender produto genérico.
+
+Site oficial: https://tech.luvics.com.br/
+
+## Público-alvo
+
+- Pequenos empresários
+- Autônomos
+- Negócios locais que precisam de tecnologia prática e acessível
+
+## Principais serviços
+
+- Desenvolvimento de sites (landing pages, institucionais, portfólios)
+- CrediLuvics — gestão de crédito e custeio para cooperativas de crédito rural (AgTech)
+- InvestLuvics-AI — dashboard financeiro pessoal com IA
+- Sistemas sob medida (estoque, barbearia, petshop, clínica, oficina, advogados, SaaS, cardápio virtual, rifas, etc.)
+- Automações e atendente de IA no WhatsApp
+
+## Como funciona
+
+1. Contato pelo WhatsApp
+2. Reunião rápida de entendimento
+3. Proposta com prazo e preço
+4. Desenvolvimento e entrega
+5. Suporte técnico incluso por 1 ano
+
+## Equipe
+
+- Luan — Engenharia, IA e full stack
+- Victoria — Gestão de projetos e Scrum
+
+## Contato público
+
+- WhatsApp principal: +55 14 99653-6743
+- WhatsApp secundário: +55 16 99609-8129
+- E-mail: techluvics@gmail.com
+- Instagram: https://www.instagram.com/tech.luvics/
+
+## Links importantes
+
+- Home: https://tech.luvics.com.br/
+- Catálogo de parceiros (Luvics): https://luvics.com.br/
+- Sitemap: https://tech.luvics.com.br/sitemap.xml
+
+## Observação
+
+Este arquivo (llms.txt) resume o conteúdo público do site para ferramentas de IA. Não substitui o conteúdo indexável, o sitemap nem o SEO on-page.
