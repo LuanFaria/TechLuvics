@@ -1013,3 +1013,43 @@
       wake();
     }
   })();
+
+
+  // ===== Specular rim — highlight follows the cursor =====
+  (function () {
+    var buttons = document.querySelectorAll(".btn:not(.btn-cyan)");
+    if (!buttons.length) return;
+    var reduce =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function setAngle(btn, deg) {
+      btn.style.setProperty("--sb-angle", deg.toFixed(1) + "deg");
+    }
+
+    buttons.forEach(function (btn) {
+      setAngle(btn, 28);
+    });
+
+    if (reduce) return;
+
+    window.addEventListener(
+      "pointermove",
+      function (e) {
+        for (var i = 0; i < buttons.length; i++) {
+          var btn = buttons[i];
+          var r = btn.getBoundingClientRect();
+          var cx = r.left + r.width / 2;
+          var cy = r.top + r.height / 2;
+          var dx = e.clientX - cx;
+          var dy = e.clientY - cy;
+          var dist = Math.hypot(dx, dy);
+          var reach = 250 + Math.max(r.width, r.height) * 0.5;
+          if (dist > reach) continue;
+          var pointer = (Math.atan2(dx, -dy) * 180) / Math.PI;
+          setAngle(btn, pointer - 110);
+        }
+      },
+      { passive: true }
+    );
+  })();
