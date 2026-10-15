@@ -466,11 +466,7 @@
         return;
       }
       if (g.gradient) {
-        var grd = ctx.createLinearGradient(g.left, g.top, g.right + 40, g.bottom);
-        grd.addColorStop(0, "#22d3ee");
-        grd.addColorStop(0.5, "#34d399");
-        grd.addColorStop(1, "#a78bfa");
-        ctx.fillStyle = grd;
+        ctx.fillStyle = ACCENT; /* ciano sólido, mesmo tom do badge */
       } else {
         ctx.fillStyle = COLOR;
       }
@@ -794,21 +790,23 @@
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    var hoverScale = 1.06;
-    var bounciness = 0.6;
+    var hoverScale = 1.04;
+    var bounciness = 0.55;
     var delay = 0.35;
     var stagger = 0.06;
-    var pushDistance = 28;
+    var pushDistance = 12; // menor no mobile para não sair do card
 
     function layoutSlots() {
-      var mobile = window.innerWidth <= 720;
-      var cardSize = mobile ? 120 : 150;
-      var gapX = mobile ? 78 : 105;
-      var gapY = mobile ? 72 : 95;
-      // 3 top (indices 0,1,2), 2 bottom centered (3,4)
-      // coords relative to center of container
-      var topY = -gapY * 0.55;
-      var botY = gapY * 0.55;
+      var w = root.clientWidth || window.innerWidth;
+      // Escala pelo espaço real do container — evita cortar no celular
+      var cardSize = Math.round(Math.min(150, Math.max(78, w * 0.28)));
+      var gapX = Math.round(Math.min(cardSize * 0.72, (w - cardSize) * 0.38));
+      var gapY = Math.round(cardSize * 0.72);
+      var topY = -gapY * 0.52;
+      var botY = gapY * 0.52;
+      var half = cardSize / 2;
+      var maxX = Math.max(0, w / 2 - half - 6);
+      if (gapX > maxX) gapX = maxX;
       var positions = [
         { x: -gapX, y: topY },
         { x: 0, y: topY },
@@ -817,11 +815,12 @@
         { x: gapX * 0.55, y: botY }
       ];
       root.style.setProperty("--bounce-cards-size", cardSize + "px");
+      root.style.height = Math.round(cardSize * 2.15 + 24) + "px";
       return positions.map(function (p, i) {
         return {
           x: p.x,
           y: p.y,
-          rotate: 8 * PATTERN[i % PATTERN.length],
+          rotate: 6 * PATTERN[i % PATTERN.length],
           size: cardSize
         };
       });
