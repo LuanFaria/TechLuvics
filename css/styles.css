@@ -124,7 +124,7 @@ ul, ol { list-style: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--gradient);
+  background: var(--cyan);
   transform: translateX(-100%);
   animation: loadBar 1.5s var(--ease) 0.3s forwards;
 }
@@ -257,14 +257,15 @@ ul, ol { list-style: none; }
 }
 
 .btn-primary {
-  background: var(--gradient);
+  background: var(--cyan);
   color: #000;
   box-shadow: 0 0 0 0 transparent;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--glow-strong);
+  background: var(--cyan-bright);
+  box-shadow: 0 0 28px rgba(34, 211, 238, 0.4);
 }
 
 .btn-ghost {
@@ -401,10 +402,9 @@ ul, ol { list-style: none; }
 
 
 .gradient-text {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--cyan);
+  background: none;
+  -webkit-text-fill-color: var(--cyan);
 }
 
 .hero-role {
@@ -421,10 +421,8 @@ ul, ol { list-style: none; }
   display: inline-block;
   font-weight: 600;
   color: var(--cyan);
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  -webkit-text-fill-color: var(--cyan);
   min-width: 6.5ch;
 }
 
@@ -1159,7 +1157,7 @@ ul, ol { list-style: none; }
   font-weight: 700;
   font-size: 1.05rem;
   color: #000;
-  background: var(--gradient);
+  background: var(--cyan);
   border-radius: 50%;
   box-shadow: 0 0 22px rgba(34, 211, 238, 0.35);
 }
@@ -1300,7 +1298,8 @@ ul, ol { list-style: none; }
 }
 
 .service-detail.open {
-  max-height: 1200px;
+  max-height: none;
+  overflow: visible;
 }
 
 .detail-content {
@@ -1309,6 +1308,8 @@ ul, ol { list-style: none; }
   gap: 1.25rem;
   padding: 1.5rem;
   align-items: stretch;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .detail-media {
@@ -1316,6 +1317,10 @@ ul, ol { list-style: none; }
   flex-direction: column;
   min-height: 100%;
   align-self: stretch;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .detail-text h4 {
@@ -1897,8 +1902,16 @@ ul, ol { list-style: none; }
 }
 
 .cc-card .service-icon {
-  font-size: 1.05rem;
-  margin-bottom: 0.3rem;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0.35rem;
+  border-radius: 9px;
+  color: var(--cyan);
+}
+
+.cc-card .service-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .cc-card h3 {
@@ -2048,17 +2061,19 @@ ul, ol { list-style: none; }
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden; /* não sai do card */
+  box-sizing: border-box;
 }
 
 .bounce-cards__card {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: var(--bounce-cards-size, 200px);
+  width: var(--bounce-cards-size, 150px);
+  max-width: 42%;
   aspect-ratio: 1;
   overflow: hidden;
-  border: var(--bounce-cards-border, 5px) solid var(--bounce-cards-border-color, #fff);
-  border-radius: var(--bounce-cards-radius, 25px);
+  border: var(--bounce-cards-border, 4px) solid var(--bounce-cards-border-color, #fff);
+  border-radius: var(--bounce-cards-radius, 18px);
   background: #0a0a0a;
   box-shadow: var(--bounce-cards-shadow);
   transform: translate(-50%, -50%) scale(0);
@@ -2067,6 +2082,7 @@ ul, ol { list-style: none; }
   text-decoration: none;
   color: #fff;
   display: block;
+  box-sizing: border-box;
 }
 
 .bounce-cards__card[data-active] {
@@ -2087,18 +2103,44 @@ ul, ol { list-style: none; }
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 1.5rem 0.5rem 0.55rem;
-  font-size: 0.72rem;
+  padding: 1.25rem 0.4rem 0.45rem;
+  font-size: 0.68rem;
   font-weight: 600;
   text-align: center;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
   pointer-events: none;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 960px) {
   .bounce-cards {
-    height: 280px;
-    --bounce-cards-size: 120px;
+    height: 300px;
+    --bounce-cards-size: 130px;
+  }
+}
+
+@media (max-width: 720px) {
+  .detail-content {
+    padding: 1.1rem 1rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .bounce-cards {
+    height: 260px;
+    --bounce-cards-size: 100px;
+    --bounce-cards-border: 3px;
+    --bounce-cards-radius: 14px;
+  }
+
+  .bounce-cards__label {
+    font-size: 0.6rem;
+    padding: 1rem 0.3rem 0.35rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .bounce-cards {
+    height: 230px;
+    --bounce-cards-size: 86px;
   }
 }
 
