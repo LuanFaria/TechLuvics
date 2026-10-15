@@ -292,7 +292,9 @@
         <!-- Sites -->
         <article class="service-card featured reveal" data-service="sites">
           <div class="service-card-main">
-            <div class="service-icon">🌐</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
+            </div>
             <h3>Desenvolvimento de Sites</h3>
             <p class="service-short">Site profissional, rápido e responsivo para o seu negócio aparecer e vender mais na internet.</p>
             <button class="expand-btn" aria-expanded="false" aria-controls="detail-sites" id="btn-sites">
@@ -322,6 +324,7 @@
                   <li>Página simples de vendas ou captura de leads</li>
                 </ul>
                 <p class="detail-cta">Para quem quer um site sério, sem dor de cabeça técnica.</p>
+                <p class="detail-cta" style="margin-top: 1rem;">Já tem site? Fazemos uma análise objetiva: se ele só está no ar com cara bonita ou se realmente ajuda o cliente a te encontrar e entrar em contato.</p>
               </div>
               <div class="detail-media">
                                                                 <div class="bounce-cards" aria-label="Sites desenvolvidos" data-bounce
@@ -344,7 +347,7 @@
                   </a>
                   <a class="bounce-cards__card" href="https://pdl.luanfari.workers.dev" target="_blank" rel="noopener" data-i="4">
                     <img src="img/paulo.png" alt="Paulo" draggable="false" loading="lazy" />
-                    <span class="bounce-cards__label">Limpeza de Ar Automotivo</span>
+                    <span class="bounce-cards__label">Paulo</span>
                   </a>
                 </div>
               </div>
@@ -352,52 +355,40 @@
           </div>
         </article>
 
-        <!-- CrediLuvics -->
-        <article class="service-card featured reveal" data-service="crediluvics">
+        <!-- Consultoria -->
+        <article class="service-card featured reveal" data-service="consultoria">
           <div class="service-card-main">
-            <div class="service-icon">📊</div>
-            <h3>CrediLuvics</h3>
-            <p class="service-short">Gestão inteligente de crédito, custeio e financiamento para cooperativas de crédito rural — AgTech de verdade.</p>
-            <button class="expand-btn" aria-expanded="false" aria-controls="detail-crediluvics" id="btn-crediluvics">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/><path d="M8 11h6M11 8v6"/></svg>
+            </div>
+            <h3>Consultoria de presença digital</h3>
+            <p class="service-short">Análise objetiva do seu site e da forma como o negócio aparece online — para saber o que está travando contato e o que vale corrigir.</p>
+            <button class="expand-btn" aria-expanded="false" aria-controls="detail-consultoria" id="btn-consultoria">
               <span>Ver detalhes</span>
               <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
           </div>
-          <div class="service-detail" id="detail-crediluvics" role="region" aria-labelledby="btn-crediluvics">
+          <div class="service-detail" id="detail-consultoria" role="region" aria-labelledby="btn-consultoria">
             <div class="detail-content">
               <div class="detail-text">
-                <p>Plataforma responsiva para controle de risco financeiro, planos de amortização dinâmicos e automações operacionais no ecossistema de cooperativas de crédito rural.</p>
-                <h4>Inteligência Financeira</h4>
+                <p>Muitos negócios têm site no ar, mas o cliente não encontra, não confia ou não sabe como chamar. Na consultoria olhamos o que está visível hoje e o que impede o próximo passo.</p>
+                <h4>O que avaliamos</h4>
                 <ul>
-                  <li>Dashboard em tempo real: capital alocado, liquidados, saldo devedor e inadimplência</li>
-                  <li>Filtros por produtor, safra e períodos mensais</li>
-                  <li>Gráficos de projeção faturada vs. caixa e distribuição de contratos</li>
+                  <li>Se o site só tem visual bonito ou estrutura que facilita ser encontrado</li>
+                  <li>Clareza da mensagem, contatos e caminho até o WhatsApp</li>
+                  <li>Pontos fracos na presença online do negócio</li>
+                  <li>Prioridades: o que corrigir primeiro e o que pode esperar</li>
                 </ul>
-                <h4>Ciclo de Crédito</h4>
+                <h4>Para quem é</h4>
                 <ul>
-                  <li>Plano de amortização fixo com juros subsidiados</li>
-                  <li>Amortização extra de safra com recálculo automático</li>
-                  <li>Liquidação parcial de títulos</li>
+                  <li>Quem já tem site e não sabe se está “só no ar” ou bem aproveitado</li>
+                  <li>Negócios locais (clínica, barbearia, padaria, escritório, loja) que querem mais contato</li>
+                  <li>Quem está pensando em investir em site ou melhorias e quer um diagnóstico antes</li>
                 </ul>
-                <h4>Mitigação de Risco</h4>
-                <ul>
-                  <li>Alertas de atraso e vencimentos próximos</li>
-                  <li>Régua de cobrança via WhatsApp automatizada</li>
-                  <li>Backup e relatórios em Excel</li>
-                </ul>
-                <p class="tech-stack"><strong>Stack:</strong> Python · Streamlit · SQLite · Pandas</p>
-              </div>
-              <div class="detail-media">
-                <div class="media-video">
-                  <iframe
-                    src="https://www.youtube-nocookie.com/embed/2AFSxhDz0v8?mute=1&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;loop=1&amp;playlist=2AFSxhDz0v8&amp;iv_load_policy=3&amp;controls=1&amp;disablekb=0"
-                    title="Demonstração CrediLuvics"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                  ></iframe>
-                </div>
+                <p class="detail-cta">Diagnóstico completo sob consulta. Fale conosco e combinamos o formato.</p>
+                <p style="margin-top: 1.25rem;">
+                  <a href="#" data-wa data-wa-msg="Olá! Quero agendar um diagnóstico de presença digital / consultoria de site." class="btn btn-primary" target="_blank" rel="noopener">Agendar diagnóstico</a>
+                </p>
               </div>
             </div>
           </div>
@@ -406,7 +397,9 @@
         <!-- InvestLuvics -->
         <article class="service-card featured reveal" data-service="investluvics">
           <div class="service-card-main">
-            <div class="service-icon">📈</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3-4 3 2 5-7"/></svg>
+            </div>
             <h3>InvestLuvics-AI</h3>
             <p class="service-short">Dashboard financeiro pessoal + IA para carteira de investimentos, rebalanceamento e projeção de independência financeira.</p>
             <button class="expand-btn" aria-expanded="false" aria-controls="detail-investluvics" id="btn-investluvics">
@@ -466,6 +459,11 @@
         <button type="button" class="cc-btn cc-prev" aria-label="Anterior">‹</button>
         <div class="cc-stage">
           <div class="cc-ring">
+            <article class="cc-card service-card">
+              <div class="service-icon">📊</div>
+              <h3>CrediLuvics</h3>
+              <p>Gestão de crédito, custeio e financiamento para cooperativas de crédito rural — AgTech de verdade.</p>
+            </article>
             <article class="cc-card service-card">
               <div class="service-icon">📦</div>
               <h3>Controle de Estoque</h3>
@@ -592,6 +590,15 @@
           </button>
           <div class="faq-answer" id="faq-1" role="region" aria-labelledby="btn-faq-1" hidden>
             <p>Não. Os 15 são exemplos de soluções que já entregamos e estão em uso. O foco é resolver o <em>seu</em> problema. Se precisar de um site, de uma automação específica ou de algo que ainda não existe na lista, conversamos e avaliamos a viabilidade.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-consultoria" id="btn-faq-consultoria">
+            <span>Vocês só criam site ou também analisam o que eu já tenho?</span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer" id="faq-consultoria" role="region" aria-labelledby="btn-faq-consultoria" hidden>
+            <p>Também analisamos. Temos consultoria de presença digital para quem já tem site ou quer um diagnóstico antes de investir: se está só “bonito no ar” ou se realmente ajuda o cliente a te achar e falar com você. No site, o diagnóstico completo é sob consulta; em algumas campanhas ou indicações pode haver uma conversa introdutória mais curta.</p>
           </div>
         </div>
         <div class="faq-item reveal">
