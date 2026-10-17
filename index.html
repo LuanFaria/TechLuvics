@@ -27,8 +27,7 @@
   <link rel="shortcut icon" href="img/faviconinstagram.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,10 +40,7 @@
         "logo": "https://tech.luvics.com.br/img/logo-icon.png",
         "email": "techluvics@gmail.com",
         "telephone": "+55-14-99653-6743",
-        "sameAs": [
-          "https://www.instagram.com/tech.luvics/",
-          "https://luvics.com.br/"
-        ]
+        "sameAs": ["https://www.instagram.com/tech.luvics/", "https://luvics.com.br/"]
       },
       {
         "@type": "WebSite",
@@ -63,249 +59,113 @@
         "url": "https://tech.luvics.com.br/",
         "email": "techluvics@gmail.com",
         "telephone": "+55-14-99653-6743",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Brasil"
-        },
+        "areaServed": { "@type": "Country", "name": "Brasil" },
         "priceRange": "$$",
         "image": "https://tech.luvics.com.br/img/logo-preview-dark.jpg",
-        "sameAs": [
-          "https://www.instagram.com/tech.luvics/",
-          "https://luvics.com.br/"
-        ],
+        "sameAs": ["https://www.instagram.com/tech.luvics/", "https://luvics.com.br/"],
         "parentOrganization": { "@id": "https://tech.luvics.com.br/#organization" }
       }
     ]
   }
   </script>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Loader / Opening -->
-  <div class="loader" id="loader">
-    <div class="loader-brand">
-      <span class="loader-icon" aria-hidden="true">◆</span>
-      <span class="loader-name">Tech<span>Luvics</span></span>
-    </div>
-    <div class="loader-bar"></div>
-  </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="tri" viewBox="0 0 24 24"><path d="M12 2.5 22 20.5H2Z M12 2.5 13.4 14.2 M22 20.5 13.4 14.2 M2 20.5 13.4 14.2"/></symbol>
+      <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+    </defs>
+  </svg>
 
-  <!-- Particles -->
-  <canvas id="particles"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="topfade" aria-hidden="true"></div>
 
   <!-- Navbar -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-inner">
-      <a href="#inicio" class="logo">
-        <span class="logo-icon">◆</span>
-        <span class="logo-text">Tech<span>Luvics</span></span>
+  <header class="nav" id="nav">
+    <div class="nav-in">
+      <a href="#inicio" class="logo" aria-label="TechLuvics — início">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21 12 3l9 18-9-5.2Z" fill="url(#lg)"/><path d="M12 3v12.8L21 21" fill="none" stroke="#a5f3fc" stroke-width="1" opacity=".7"/></svg>
+        <span class="logo-text">Tech<b>Luvics</b></span>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">Menu</button>
       <nav class="nav-links" id="navLinks" aria-label="Menu principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#parceiros">Parceiros</a>
-        <a href="#faq">FAQ</a>
-        <a href="#equipe">Equipe</a>
-        <a href="#contato">Contato</a>
-        <a href="#" data-wa data-wa-msg="Olá! Vim pelo site da TechLuvics e quero saber mais." class="btn btn-primary btn-nav" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#sobre" data-spy="sobre diferenciais como-funciona">Sobre</a>
+        <a href="#servicos" data-spy="servicos sites solucoes parceiros">Serviços</a>
+        <a href="#equipe" data-spy="equipe">Equipe</a>
+        <a href="#faq" data-spy="faq">FAQ</a>
+        <a href="#contato" data-spy="contato">Contato</a>
+        <a href="https://wa.me/5514996536743?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TechLuvics%20e%20quero%20saber%20mais." class="btn btn-sm" target="_blank" rel="noopener">WhatsApp</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="inicio">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="hero-badge">Soluções tecnológicas sob medida</p>
-        <h1 class="hero-title" id="heroTitle">
-          <span class="hero-title-fallback">Deixa que a gente <span class="gradient-text">programa</span> pra você</span>
-          <canvas class="hero-tech-canvas" id="heroTechCanvas" aria-hidden="true"></canvas>
-        </h1>
-        <p class="hero-role">Soluções que <span class="hero-role-word" id="heroRole">entregam</span> de verdade.</p>
-        <p class="hero-sub">
-          Sites, automações, sistemas de gestão e inteligência artificial para pequenos empresários e autônomos.
-        </p>
-        <div class="hero-ctas">
-          <a href="#" data-wa data-wa-msg="Olá! Vim pelo site da TechLuvics e quero saber mais." class="btn btn-primary btn-sites btn-lg" target="_blank" rel="noopener">
-            Falar no WhatsApp
-          </a>
-          <a href="#servicos" class="btn btn-ghost btn-lg">Ver soluções</a>
-        </div>
-        <ul class="hero-stats">
-          <li class="stat">
-            <strong>15+</strong>
-            <span>Sistemas sob medida</span>
-          </li>
-          <li class="stat">
-            <strong>150+</strong>
-            <span>Clientes satisfeitos</span>
-          </li>
-          <li class="stat">
-            <strong>1 ano</strong>
-            <span>Suporte incluso</span>
-          </li>
-        </ul>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-orb"></div>
-        <div class="hero-panel">
-          <div class="hero-panel-top">
-            <span class="hero-dot"></span>
-            <span class="hero-dot"></span>
-            <span class="hero-dot"></span>
-            <span class="hero-panel-label">TechLuvics</span>
-          </div>
-          <div class="hero-panel-body">
-            <div class="hero-code-line"><span class="c-key">const</span> <span class="c-var">solucao</span> = <span class="c-str">"sob medida"</span>;</div>
-            <div class="hero-code-line"><span class="c-key">await</span> <span class="c-fn">entregar</span>(<span class="c-var">resultado</span>);</div>
-            <div class="hero-code-line"><span class="c-cm">// sites · automação · IA</span></div>
-          </div>
-          <div class="hero-chips">
-            <span>Sites</span>
-            <span>CrediLuvics</span>
-            <span>IA</span>
-            <span>WhatsApp</span>
+  <main>
+    <!-- 1 · Hero (cérebro à direita) -->
+    <section class="sec hero" id="inicio" data-stage>
+      <div class="wrap">
+        <div class="copy">
+          <h1 class="display rv">Deixa que a gente programa pra você</h1>
+          <p class="label rv d1">TechLuvics</p>
+          <p class="lead rv d1">Sites, automações, sistemas e IA para pequenos empresários e autônomos — do primeiro WhatsApp até um ano de suporte.</p>
+          <div class="hero-cta rv d2">
+            <a class="btn" href="https://wa.me/5514996536743?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TechLuvics%20e%20quero%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
+            <a class="ghost" href="#servicos">Ver soluções</a>
           </div>
         </div>
-        <div class="hero-float hero-float-a"><span>Rápido</span></div>
-        <div class="hero-float hero-float-b"><span>1 ano de suporte</span></div>
-        <div class="hero-float hero-float-c"><span>Sob medida</span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Sobre -->
-  <section class="section" id="sobre">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Quem somos</span>
-        <h2>Não vendemos só software.<br />Resolvemos o seu problema.</h2>
-        <p class="section-desc">
-          A TechLuvics é uma empresa de soluções tecnológicas. Já entregamos mais de 15 sistemas sob medida
-          e atendemos mais de 150 clientes, mas o mais importante é entender a sua dor e construir a solução certa —
-          seja um site, uma automação simples ou um sistema completo de gestão.
-        </p>
+    <!-- 2 · Sobre (cérebro desliza para a esquerda, texto à direita) -->
+    <section class="sec" id="sobre" data-stage>
+      <div class="wrap">
+        <div class="col-r">
+          <h2 class="h2 rv">Não vendemos só software.</h2>
+          <p class="body rv d1">A TechLuvics é uma empresa de soluções tecnológicas. Já entregamos mais de 15 sistemas sob medida e atendemos mais de 150 clientes — o que importa é entender a dor e construir a solução certa, seja um site, uma automação ou um sistema completo de gestão.</p>
+        </div>
       </div>
-            <div class="about-grid benefits-grid">
-        <article class="benefit-card benefit-card--left reveal">
-          <canvas class="benefit-particles" aria-hidden="true"></canvas>
-          <div class="benefit-blob benefit-blob--left" aria-hidden="true"></div>
-          <div class="benefit-inner">
-            <h3>Foco no<br />resultado</h3>
-            <p>Não empurramos produto pronto. Conversamos, entendemos e só então propomos o que realmente resolve o seu problema.</p>
-          </div>
-        </article>
-        <article class="benefit-card benefit-card--center reveal">
-          <canvas class="benefit-particles" aria-hidden="true"></canvas>
-          <div class="benefit-inner benefit-inner--center">
-            <h3>Rápido e<br />direto</h3>
-            <p>Atendimento via WhatsApp, reunião objetiva e prazo combinado. Sem enrolação.</p>
-          </div>
-        </article>
-        <article class="benefit-card benefit-card--right reveal">
-          <canvas class="benefit-particles" aria-hidden="true"></canvas>
-          <div class="benefit-blob benefit-blob--right" aria-hidden="true"></div>
-          <div class="benefit-inner">
-            <h3>Suporte de<br />1 ano</h3>
-            <p>Depois da entrega, você tem um ano de assistência técnica inclusa. Ajustes, dúvidas e acompanhamento — estamos junto.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Como funciona -->
-  <section class="section section-alt" id="como-funciona">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Processo</span>
-        <h2>Como funciona</h2>
-        <p class="section-desc">Do primeiro “oi” no WhatsApp até a entrega e o suporte — tudo transparente.</p>
-      </div>
-            <ol class="steps">
-        <li class="step holo-step reveal">
-          <div class="holo-step-glow" aria-hidden="true"></div>
-          <div class="holo-step-shine" aria-hidden="true"></div>
-          <div class="holo-step-body">
-            <div class="step-num" aria-hidden="true">1</div>
-            <h3>Mensagem no WhatsApp</h3>
-            <p>Você nos chama. Conta o que precisa (mesmo que ainda esteja confuso). Respondemos rápido.</p>
-          </div>
-        </li>
-        <li class="step holo-step reveal">
-          <div class="holo-step-glow" aria-hidden="true"></div>
-          <div class="holo-step-shine" aria-hidden="true"></div>
-          <div class="holo-step-body">
-            <div class="step-num" aria-hidden="true">2</div>
-            <h3>Reunião rápida</h3>
-            <p>Marcamos um horário (online ou presencial) para entender a fundo o problema e o contexto do seu negócio.</p>
-          </div>
-        </li>
-        <li class="step holo-step reveal">
-          <div class="holo-step-glow" aria-hidden="true"></div>
-          <div class="holo-step-shine" aria-hidden="true"></div>
-          <div class="holo-step-body">
-            <div class="step-num" aria-hidden="true">3</div>
-            <h3>Viabilidade & proposta</h3>
-            <p>Analisamos se faz sentido para a gente. Se sim, combinamos prazo e preço conforme a complexidade do projeto.</p>
-          </div>
-        </li>
-        <li class="step holo-step reveal">
-          <div class="holo-step-glow" aria-hidden="true"></div>
-          <div class="holo-step-shine" aria-hidden="true"></div>
-          <div class="holo-step-body">
-            <div class="step-num" aria-hidden="true">4</div>
-            <h3>Desenvolvimento</h3>
-            <p>Construímos, testamos e entregamos. Você acompanha o progresso.</p>
-          </div>
-        </li>
-        <li class="step holo-step reveal">
-          <div class="holo-step-glow" aria-hidden="true"></div>
-          <div class="holo-step-shine" aria-hidden="true"></div>
-          <div class="holo-step-body">
-            <div class="step-num" aria-hidden="true">5</div>
-            <h3>1 ano de suporte</h3>
-            <p>Assistência técnica inclusa por 12 meses. Ajustes, dúvidas e acompanhamento.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
+    <!-- 3 · Como funciona (nuvem dispersa, texto centralizado) -->
+    <section class="sec center-sec" id="como-funciona" data-stage>
+      <div class="cblock"><div class="in">
+        <p class="label rv">Como funciona</p>
+        <p class="rv d1">Do primeiro “oi” no WhatsApp até a entrega e o suporte — sem caixa-preta.</p>
+      </div></div>
+      <div class="cblock steps-block"><ol class="steps">
+        <li class="rv"><span class="n">1</span><div><h3>Mensagem no WhatsApp.</h3><p>Você nos chama. Conta o que precisa (mesmo que ainda esteja confuso). Respondemos rápido.</p></div></li>
+        <li class="rv"><span class="n">2</span><div><h3>Reunião rápida.</h3><p>Marcamos um horário (online ou presencial) para entender a fundo o problema e o contexto do seu negócio.</p></div></li>
+        <li class="rv"><span class="n">3</span><div><h3>Viabilidade &amp; proposta.</h3><p>Analisamos se faz sentido para a gente. Se sim, combinamos prazo e preço conforme a complexidade do projeto.</p></div></li>
+        <li class="rv"><span class="n">4</span><div><h3>Desenvolvimento.</h3><p>Construímos, testamos e entregamos. Você acompanha o progresso.</p></div></li>
+        <li class="rv"><span class="n">5</span><div><h3>1 ano de suporte.</h3><p>Assistência técnica inclusa por 12 meses. Ajustes, dúvidas e acompanhamento.</p></div></li>
+      </ol></div>
+    </section>
 
-  <!-- Serviços -->
-  <section class="section" id="servicos">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Soluções</span>
-        <h2>O que podemos fazer por você</h2>
-        <p class="section-desc">
-          Temos sistemas já rodando em outros clientes. Mas o que importa é o <strong>seu</strong> problema.
-          Se precisa de um site, de uma automação ou de algo que ainda nem imaginou — fale conosco.
-        </p>
+    <!-- 4 · Diferenciais (lâmpada à esquerda) -->
+    <section class="sec" id="diferenciais" data-stage>
+      <div class="wrap">
+        <div class="col-r">
+          <h2 class="h2 rv">Resolvemos o seu problema.</h2>
+          <p class="body rv d1"><span class="hl">Foco no resultado.</span> Não empurramos produto pronto. Conversamos, entendemos e só então propomos o que realmente resolve o seu problema.</p>
+          <p class="body rv d2"><span class="hl">Rápido e direto.</span> Atendimento via WhatsApp, reunião objetiva e prazo combinado. Sem enrolação.</p>
+          <p class="body rv d3"><span class="hl">Suporte de 1 ano.</span> Depois da entrega, você tem um ano de assistência técnica inclusa. Ajustes, dúvidas e acompanhamento — estamos junto.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="featured-label reveal">Principais soluções</div>
-      <div class="featured-grid">
-        <!-- Sites -->
-        <article class="service-card featured reveal" data-service="sites">
-          <div class="service-card-main">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
-            </div>
-            <h3>Desenvolvimento de Sites</h3>
-            <p class="service-short">Site profissional, rápido e responsivo para o seu negócio aparecer e vender mais na internet.</p>
-            <button class="expand-btn" aria-expanded="false" aria-controls="detail-sites" id="btn-sites">
-              <span>Ver detalhes</span>
-              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-          </div>
-          <div class="service-detail" id="detail-sites" role="region" aria-labelledby="btn-sites">
-            <div class="detail-content">
-              <div class="detail-text">
-                <p>Seu negócio na internet com cara profissional: visual limpo, rápido no celular e feito para gerar contato — não só para “existir online”.</p>
+    <!-- 5 · Serviços principais (globo à direita, texto à esquerda) -->
+    <section class="sec" id="servicos" data-stage>
+      <div class="wrap">
+        <div class="col-l">
+          <p class="label rv">Principais soluções</p>
+          <h2 class="h2 rv d1">O que podemos fazer por você</h2>
+
+          <div class="rv d1">
+            <p class="body"><span class="hl">Desenvolvimento de Sites.</span> Site profissional, rápido e responsivo para o seu negócio aparecer e vender mais na internet.</p>
+            <details>
+              <summary>Ver detalhes</summary>
+              <div class="dt">
+                <p style="margin-top:0">Seu negócio na internet com cara profissional: visual limpo, rápido no celular e feito para gerar contato — não só para “existir online”.</p>
                 <p>Desenvolvemos landing pages, sites institucionais, portfólios e páginas de captura. Do zero ou renovando o que você já tem, com foco no que o visitante precisa ver e no próximo passo (WhatsApp, formulário, compra).</p>
                 <h4>O que entregamos</h4>
                 <ul>
@@ -323,55 +183,19 @@
                   <li>Portfólio para mostrar trabalhos e serviços</li>
                   <li>Página simples de vendas ou captura de leads</li>
                 </ul>
-                <p class="detail-cta">Para quem quer um site sério, sem dor de cabeça técnica.</p>
-                <p class="detail-cta" style="margin-top: 1rem;">Já tem site? Fazemos uma análise objetiva: se ele só está no ar com cara bonita ou se realmente ajuda o cliente a te encontrar e entrar em contato.</p>
+                <p>Para quem quer um site sério, sem dor de cabeça técnica.</p>
+                <p>Já tem site? Fazemos uma análise objetiva: se ele só está no ar com cara bonita ou se realmente ajuda o cliente a te encontrar e entrar em contato.</p>
+                <p><a class="ghost" href="#sites">Ver sites desenvolvidos ↓</a></p>
               </div>
-              <div class="detail-media">
-                                                                <div class="bounce-cards" aria-label="Sites desenvolvidos" data-bounce
-                  style="--bounce-cards-size:150px;--bounce-cards-border:4px;--bounce-cards-border-color:#ffffff;--bounce-cards-radius:18px;--bounce-cards-shadow:0 1px 2px rgba(0,0,0,0.12),0 10px 28px -6px rgba(0,0,0,0.32);--bounce-cards-shadow-active:0 2px 4px rgba(0,0,0,0.14),0 22px 44px -10px rgba(0,0,0,0.42)">
-                  <a class="bounce-cards__card" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener" data-i="0">
-                    <img src="img/packautoral.png" alt="Pack Autoral" draggable="false" loading="lazy" />
-                    <span class="bounce-cards__label">Pack Autoral</span>
-                  </a>
-                  <a class="bounce-cards__card" href="https://luvics.com.br/pratinho/" target="_blank" rel="noopener" data-i="1">
-                    <img src="img/pratinho.png" alt="Pratinho" draggable="false" loading="lazy" />
-                    <span class="bounce-cards__label">Introdução Alimentar</span>
-                  </a>
-                  <a class="bounce-cards__card" href="https://luvics.com.br/" target="_blank" rel="noopener" data-i="2">
-                    <img src="img/luvi.png" alt="Luvics" draggable="false" loading="lazy" />
-                    <span class="bounce-cards__label">Luvics</span>
-                  </a>
-                  <a class="bounce-cards__card" href="https://29f5dd99aa834e4e8e49c598be74c10b.prod.enter.pro/" target="_blank" rel="noopener" data-i="3">
-                    <img src="img/mariaduarte.png" alt="Maria Duarte" draggable="false" loading="lazy" />
-                    <span class="bounce-cards__label">Consultora de Imóveis</span>
-                  </a>
-                  <a class="bounce-cards__card" href="https://pdl.luanfari.workers.dev" target="_blank" rel="noopener" data-i="4">
-                    <img src="img/paulo.png" alt="Paulo" draggable="false" loading="lazy" />
-                    <span class="bounce-cards__label">Limpeza de Ar Automotivo</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+            </details>
           </div>
-        </article>
 
-        <!-- Consultoria -->
-        <article class="service-card featured reveal" data-service="consultoria">
-          <div class="service-card-main">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/><path d="M8 11h6M11 8v6"/></svg>
-            </div>
-            <h3>Consultoria de presença digital</h3>
-            <p class="service-short">Análise objetiva do seu site e da forma como o negócio aparece online — para saber o que está travando contato e o que vale corrigir.</p>
-            <button class="expand-btn" aria-expanded="false" aria-controls="detail-consultoria" id="btn-consultoria">
-              <span>Ver detalhes</span>
-              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-          </div>
-          <div class="service-detail" id="detail-consultoria" role="region" aria-labelledby="btn-consultoria">
-            <div class="detail-content">
-              <div class="detail-text">
-                <p>Muitos negócios têm site no ar, mas o cliente não encontra, não confia ou não sabe como chamar. Na consultoria olhamos o que está visível hoje e o que impede o próximo passo.</p>
+          <div class="block rv d2">
+            <p class="body"><span class="hl">Consultoria de presença digital.</span> Análise objetiva do seu site e da forma como o negócio aparece online — para saber o que está travando contato e o que vale corrigir.</p>
+            <details>
+              <summary>Ver detalhes</summary>
+              <div class="dt">
+                <p style="margin-top:0">Muitos negócios têm site no ar, mas o cliente não encontra, não confia ou não sabe como chamar. Na consultoria olhamos o que está visível hoje e o que impede o próximo passo.</p>
                 <h4>O que avaliamos</h4>
                 <ul>
                   <li>Se o site só tem visual bonito ou estrutura que facilita ser encontrado</li>
@@ -385,38 +209,24 @@
                   <li>Negócios locais (clínica, barbearia, padaria, escritório, loja) que querem mais contato</li>
                   <li>Quem está pensando em investir em site ou melhorias e quer um diagnóstico antes</li>
                 </ul>
-                <p class="detail-cta">Diagnóstico completo sob consulta. Fale conosco e combinamos o formato.</p>
-                <p style="margin-top: 1.25rem;">
-                  <a href="#" data-wa data-wa-msg="Olá! Quero agendar um diagnóstico de presença digital / consultoria de site." class="btn btn-primary btn-sites" target="_blank" rel="noopener">Agendar diagnóstico</a>
-                </p>
+                <p>Diagnóstico completo sob consulta. Fale conosco e combinamos o formato.</p>
+                <p><a class="ghost" href="https://wa.me/5514996536743?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20de%20presen%C3%A7a%20digital%20%2F%20consultoria%20de%20site." target="_blank" rel="noopener">Agendar diagnóstico →</a></p>
               </div>
-            </div>
+            </details>
           </div>
-        </article>
 
-        <!-- InvestLuvics -->
-        <article class="service-card featured reveal" data-service="investluvics">
-          <div class="service-card-main">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3-4 3 2 5-7"/></svg>
-            </div>
-            <h3>InvestLuvics-AI</h3>
-            <p class="service-short">Dashboard financeiro pessoal + IA para carteira de investimentos, rebalanceamento e projeção de independência financeira.</p>
-            <button class="expand-btn" aria-expanded="false" aria-controls="detail-investluvics" id="btn-investluvics">
-              <span>Ver detalhes</span>
-              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-          </div>
-          <div class="service-detail" id="detail-investluvics" role="region" aria-labelledby="btn-investluvics">
-            <div class="detail-content">
-              <div class="detail-text">
-                <p>Plataforma que substitui planilhas complexas por banco de dados estruturado, interface interativa e motor de recomendação com Inteligência Artificial.</p>
+          <div class="block rv d3">
+            <p class="body"><span class="hl">InvestLuvics-AI.</span> Dashboard financeiro pessoal + IA para carteira de investimentos, rebalanceamento e projeção de independência financeira.</p>
+            <details>
+              <summary>Ver detalhes</summary>
+              <div class="dt">
+                <p style="margin-top:0">Plataforma que substitui planilhas complexas por banco de dados estruturado, interface interativa e motor de recomendação com Inteligência Artificial.</p>
                 <h4>Gestão de Fluxo de Caixa</h4>
                 <ul>
                   <li>Receitas, despesas e categorização</li>
                   <li>Mapeamento de sobra para aportes</li>
                 </ul>
-                <h4>Carteira de FIIs & Ativos</h4>
+                <h4>Carteira de FIIs &amp; Ativos</h4>
                 <ul>
                   <li>Scraping de cotação, P/VP e Dividend Yield</li>
                   <li>Distribuição por segmentos e metas de alocação</li>
@@ -429,369 +239,183 @@
                   <li>Simulador de juros compostos e independência financeira</li>
                 </ul>
               </div>
-              <div class="detail-media">
-                <!-- INVESTLUVICS: troque VIDEO_ID_INVEST pelo ID do YouTube -->
-                <div class="media-video" data-youtube-id="">
-                  <div class="media-placeholder media-invest">
-                    <span class="media-icon">▶</span>
-                    <span>Demonstração em breve</span>
-                    <small>Cole o link/ID do vídeo de InvestLuvics</small>
-                  </div>
-                  <!--
-                  <iframe
-                    src="https://www.youtube-nocookie.com/embed/VIDEO_ID_INVEST?mute=1&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=VIDEO_ID_INVEST&iv_load_policy=3&controls=1"
-                    title="Demonstração InvestLuvics"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                  ></iframe>
-                  -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-            <div class="featured-label reveal" style="margin-top: 3rem;">Outras soluções</div>
-      <div class="cc-wrap reveal" id="outrasCarousel">
-        <button type="button" class="cc-btn cc-prev" aria-label="Anterior">‹</button>
-        <div class="cc-stage">
-          <div class="cc-ring">
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="M7 15h3v4H7zM12 11h3v8h-3zM17 8h3v11h-3z"/></svg></div>
-              <h3>CrediLuvics</h3>
-              <p>Gestão de crédito, custeio e financiamento para cooperativas de crédito rural — AgTech de verdade.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></div>
-              <h3>Controle de Estoque</h3>
-              <p>Sistema leve para pequenas lojas e minimercados: entradas, saídas, alertas de mínimo e relatórios claros.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></div>
-              <h3>Barbearia Personalizada</h3>
-              <p>Agenda online, cadastro de clientes, serviços e histórico. Menos fila, mais organização e fidelização.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 2 6 0 8-2-2-2-5 0-8z"/><path d="M12 11c4 1 6 3 6 6a6 6 0 0 1-12 0c0-3 2-5 6-6z"/></svg></div>
-              <h3>Petshop Personalizado</h3>
-              <p>Agenda de banhos e tosas, clientes e pets, lembretes e controle de serviços em um só lugar.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13"/><path d="M9 21v-6h6v6"/></svg></div>
-              <h3>Clínica Personalizada</h3>
-              <p>Agenda, prontuário eletrônico e módulo financeiro. Atendimento mais profissional e seguro.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-              <h3>Oficina Smart</h3>
-              <p>Ordens de serviço, status em tempo real, peças e gestão de clientes para oficinas mecânicas.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-              <h3>Sistema para Advogados</h3>
-              <p>Gestão de processos, prazos, clientes e documentos. Organize o escritório sem planilha bagunçada.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div>
-              <h3>Gestão SaaS</h3>
-              <p>Painel de gestão para pequenas empresas: clientes, finanças e operações em formato SaaS sob medida.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5h.01M14.5 9.5h.01M8.5 14c1.2 1.5 2.7 2.2 3.5 2.2s2.3-.7 3.5-2.2"/></svg></div>
-              <h3>AskMe</h3>
-              <p>Plataforma de perguntas e respostas para comunidades, suporte ou engajamento interno da sua equipe.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 10h16M9 6v4"/></svg></div>
-              <h3>Cardápio Virtual</h3>
-              <p>Cardápio digital com QR Code para cafeterias e restaurantes. Atualize preços e itens em segundos.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-              <h3>Atendente de IA no WhatsApp</h3>
-              <p>Bot inteligente que responde clientes 24h, qualifica leads e agenda horários.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10.5h5M9.5 13.5h5"/></svg></div>
-              <h3>Preço que não dá prejuízo</h3>
-              <p>Análise financeira do seu negócio: descubra o preço certo para cobrir custos e lucrar.</p>
-            </article>
-            <article class="cc-card service-card">
-              <div class="service-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v10H4z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
-              <h3>Plataforma de Rifas e Sorteios</h3>
-              <p>Sistema completo para criar, vender e gerenciar rifas e sorteios com transparência.</p>
-            </article>
+            </details>
           </div>
         </div>
-        <button type="button" class="cc-btn cc-next" aria-label="Próximo">›</button>
       </div>
+    </section>
 
-      <div class="services-cta reveal">
-        <canvas class="cta-particles" aria-hidden="true"></canvas>
-        <div class="services-cta-inner">
-          <p>Não achou exatamente o que precisa? <strong>Conte o seu problema.</strong> Talvez a gente já tenha a solução — ou construa uma.</p>
-          <a href="#" data-wa data-wa-msg="Olá! Tenho um problema e quero saber se a TechLuvics consegue resolver." class="btn btn-primary btn-cyan" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <!-- Sites desenvolvidos (vitrine) -->
+    <section class="sec" id="sites" data-stage>
+      <div class="wrap">
+        <div class="sites-head">
+          <p class="label rv">Portfólio</p>
+          <h2 class="display rv d1" style="font-size:clamp(36px,4.2vw,68px);letter-spacing:-.045em;line-height:1">Sites desenvolvidos</h2>
+          <p class="body rv d2" style="margin-top:18px;max-width:520px">Veja na prática o nosso trabalho. Toque em qualquer um para abrir o site ao vivo.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Parceiros -->
-  <section class="section section-alt" id="parceiros">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Ecossistema</span>
-        <h2>Plataformas e assinaturas de parceiros</h2>
-        <p class="section-desc">
-          Além das soluções sob medida, criamos e mantemos um ecossistema de produtos digitais em vários setores —
-          como uma “Netflix” de soluções. Todos os sites foram desenvolvidos pela TechLuvics.
-        </p>
-      </div>
-      <div class="partners-card reveal">
-        <canvas class="partners-particles" aria-hidden="true"></canvas>
-        <div class="partners-content">
-          <span class="partners-tag">Ecossistema</span>
-          <h3>Explore o catálogo Luvics</h3>
-          <p>Produtos de diversos segmentos, prontos para assinatura ou uso. Enquanto você descobre soluções de parceiros, vê na prática a qualidade do nosso trabalho.</p>
-          <a href="https://luvics.com.br/" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-            Acessar luvics.com.br
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <div class="sites-grid">
+          <a class="site rv d0" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener" aria-label="Abrir site Pack Autoral">
+            <div class="shot" data-ini="Pack Autoral"><img src="img/packautoral.png" alt="Site Pack Autoral" loading="lazy" /></div>
+            <div class="site-info"><h3>Pack Autoral</h3><span>luvics.com.br ↗</span></div>
+          </a>
+          <a class="site rv d1" href="https://pdl.luanfari.workers.dev" target="_blank" rel="noopener" aria-label="Abrir site Limpeza de Ar Automotivo">
+            <div class="shot" data-ini="Limpeza de Ar Automotivo"><img src="img/paulo.png" alt="Site Limpeza de Ar Automotivo" loading="lazy" /></div>
+            <div class="site-info"><h3>Limpeza de Ar Automotivo</h3><span>pdl.luanfari.workers.dev ↗</span></div>
+          </a>
+          <a class="site rv d2" href="https://odonto.luanfari.workers.dev/" target="_blank" rel="noopener" aria-label="Abrir site Lacerda Odontologia">
+            <div class="shot" data-ini="Lacerda Odontologia"><img src="img/odonto.png" alt="Site Lacerda Odontologia" loading="lazy" /></div>
+            <div class="site-info"><h3>Lacerda Odontologia</h3><span>odonto.luanfari.workers.dev ↗</span></div>
+          </a>
+          <a class="site rv d3" href="https://precify.luanfari.workers.dev/" target="_blank" rel="noopener" aria-label="Abrir site Precify">
+            <div class="shot" data-ini="Precify"><img src="img/precify.png" alt="Site Precify" loading="lazy" /></div>
+            <div class="site-info"><h3>Precify</h3><span>precify.luanfari.workers.dev ↗</span></div>
+          </a>
+          <a class="site rv d3" href="https://cafune.luvics.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Cafuné Pet">
+            <div class="shot" data-ini="Cafuné Pet"><img src="img/cafune.png" alt="Site Cafuné Pet" loading="lazy" /></div>
+            <div class="site-info"><h3>Cafuné Pet</h3><span>cafune.luvics.com.br ↗</span></div>
           </a>
         </div>
-        <div class="partners-visual">
-          <ul class="catalog" aria-label="Segmentos do catálogo">
-            <li><span>AgTech</span><em>campo e crédito</em></li>
-            <li><span>Finanças</span><em>o dia a dia</em></li>
-            <li><span>Saúde</span><em>clínica e agenda</em></li>
-            <li><span>Varejo</span><em>balcão e estoque</em></li>
-            <li><span>Serviços</span><em>quem atende</em></li>
-            <li><span>Educação</span><em>aula e conteúdo</em></li>
-          </ul>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Dúvidas</span>
-        <h2>Perguntas frequentes</h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-1" id="btn-faq-1">
-            <span>Vocês só fazem os 15 sistemas listados?</span>
-            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer" id="faq-1" role="region" aria-labelledby="btn-faq-1" hidden>
-            <p>Não. Os 15 são exemplos de soluções que já entregamos e estão em uso. O foco é resolver o <em>seu</em> problema. Se precisar de um site, de uma automação específica ou de algo que ainda não existe na lista, conversamos e avaliamos a viabilidade.</p>
+    <!-- 6 · Equipe (carrossel) -->
+    <section class="sec" id="equipe" data-stage>
+      <div class="wrap">
+        <div class="team-grid">
+          <div class="team-copy">
+            <h2 class="display rv" style="font-size:clamp(38px,4.4vw,72px);letter-spacing:-.045em;line-height:1;margin-bottom:26px">Quem constrói com você</h2>
+            <p class="body rv d1">Não é empresa anônima. Somos duas pessoas — engenharia, produto e gestão — em cada etapa do projeto.</p>
+            <p class="team-note rv d2">Tudo que a TechLuvics entrega passa pelas nossas mãos. Sem intermediários.</p>
           </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-consultoria" id="btn-faq-consultoria">
-            <span>Vocês só criam site ou também analisam o que eu já tenho?</span>
-            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer" id="faq-consultoria" role="region" aria-labelledby="btn-faq-consultoria" hidden>
-            <p>Também analisamos. Temos consultoria de presença digital para quem já tem site ou quer um diagnóstico antes de investir: se está só “bonito no ar” ou se realmente ajuda o cliente a te achar e falar com você. No site, o diagnóstico completo é sob consulta; em algumas campanhas ou indicações pode haver uma conversa introdutória mais curta.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-2" id="btn-faq-2">
-            <span>Como é definido o preço?</span>
-            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer" id="faq-2" role="region" aria-labelledby="btn-faq-2" hidden>
-            <p>O valor é baseado na complexidade do projeto: escopo, integrações, prazo e nível de customização. Depois da reunião de entendimento, enviamos uma proposta clara, sem surpresas.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-3" id="btn-faq-3">
-            <span>Quanto tempo leva para entregar?</span>
-            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer" id="faq-3" role="region" aria-labelledby="btn-faq-3" hidden>
-            <p>Depende do que for combinado. Um site simples pode sair em poucos dias; um sistema de gestão mais completo leva semanas. Sempre alinhamos o prazo antes de começar.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-4" id="btn-faq-4">
-            <span>O suporte de 1 ano cobre o quê?</span>
-            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer" id="faq-4" role="region" aria-labelledby="btn-faq-4" hidden>
-            <p>Correções de bugs, dúvidas de uso e pequenos ajustes combinados. Não inclui novas funcionalidades grandes (essas viram novo escopo), mas você não fica sozinho depois da entrega.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-5" id="btn-faq-5">
-            <span>Preciso ter conhecimento técnico?</span>
-            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer" id="faq-5" role="region" aria-labelledby="btn-faq-5" hidden>
-            <p>Não. Nós cuidamos de tudo: desenvolvimento, orientação de hospedagem e domínio, e explicamos de forma simples como usar. Você só precisa contar o que o negócio precisa.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-6" id="btn-faq-6">
-            <span>Atendem só empresas grandes?</span>
-            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer" id="faq-6" role="region" aria-labelledby="btn-faq-6" hidden>
-            <p>Pelo contrário. Nosso público principal são pequenos empresários, autônomos e negócios locais que precisam de tecnologia prática e acessível — sem burocracia de grandes consultorias.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-7" id="btn-faq-7">
-            <span>Como começo?</span>
-            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer" id="faq-7" role="region" aria-labelledby="btn-faq-7" hidden>
-            <p>É só mandar uma mensagem no WhatsApp. Conta o que está precisando (mesmo que ainda esteja vago). A gente responde, marca a reunião e segue o processo juntos.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-  <!-- Equipe / Autores -->
-  <section class="section" id="equipe">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Por trás da TechLuvics</span>
-        <h2>Quem constrói com você</h2>
-        <p class="section-desc">
-          Não é uma empresa anônima. Somos duas pessoas — engenharia, produto e gestão —
-          responsáveis por cada etapa do seu projeto.
-        </p>
-      </div>
-      <div class="team-grid">
-        <article class="team-card reveal">
-          <div class="team-photo">
-            <img src="img/luan.jpeg" alt="Luan — co-fundador da TechLuvics" width="200" height="267" loading="lazy" />
-            <div class="team-fx" aria-hidden="true">
-              <span class="fx-eq eq1">∑ nᵢ</span>
-              <span class="fx-eq eq2">∇·F = 0</span>
-              <span class="fx-eq eq3">λ = Wx</span>
-              <span class="fx-eq eq4">∫ f(x)</span>
-              <span class="fx-shape s-circle"></span>
-              <span class="fx-shape s-tri"></span>
-              <span class="fx-shape s-sq"></span>
-              <span class="fx-shape s-dot"></span>
-              <span class="fx-shape s-dot2"></span>
+          <div class="carousel rv d1" id="team" aria-roledescription="carrossel" aria-label="Equipe">
+            <div class="slides" aria-live="polite">
+              <article class="slide on">
+                <div class="photo" data-ini="L"><img src="img/luan.jpeg" alt="Luan — co-fundador da TechLuvics" width="200" height="267" loading="lazy" /><div class="team-fx" aria-hidden="true"><span class="fx-eq eq1">∑ nᵢ</span><span class="fx-eq eq2">∇·F = 0</span><span class="fx-eq eq3">λ = Wx</span><span class="fx-eq eq4">∫ f(x)</span><span class="fx-shape s-circle"></span><span class="fx-shape s-tri"></span><span class="fx-shape s-sq"></span><span class="fx-shape s-dot"></span><span class="fx-shape s-dot2"></span></div></div>
+                <div class="person">
+                  <p class="role">Engenheiro de Biossistemas · IA · Full Stack</p>
+                  <h3>Luan</h3>
+                  <p>Especialista em inteligência artificial e desenvolvimento full stack. Transforma a dor do negócio em sistema que funciona de verdade — do backend ao dashboard.</p>
+                </div>
+              </article>
+              <article class="slide">
+                <div class="photo" data-ini="V"><img src="img/victoria.jpeg" alt="Victoria — co-fundadora da TechLuvics" width="200" height="267" loading="lazy" /><div class="team-fx" aria-hidden="true"><span class="fx-eq eq1">Σ cost</span><span class="fx-eq eq2">v = dx/dt</span><span class="fx-eq eq3">P(A|B)</span><span class="fx-eq eq4">min f(x)</span><span class="fx-shape s-circle"></span><span class="fx-shape s-tri"></span><span class="fx-shape s-sq"></span><span class="fx-shape s-dot"></span><span class="fx-shape s-dot2"></span></div></div>
+                <div class="person">
+                  <p class="role">Engenheira Ambiental · Project Manager · Scrum Master</p>
+                  <h3>Victoria</h3>
+                  <p>Garante que o projeto caminhe com clareza: escopo, prazo e comunicação. Do alinhamento inicial à entrega, organiza o processo para você não se perder no meio do caminho.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ctrls">
+              <button class="ctrl" data-dir="-1" aria-label="Anterior">←</button>
+              <button class="ctrl" data-dir="1" aria-label="Próximo">→</button>
             </div>
           </div>
-          <div class="team-info">
-            <h3>Luan</h3>
-            <p class="team-role">Engenheiro de Biossistemas · IA · Full Stack</p>
-            <p class="team-bio">
-              Especialista em inteligência artificial e desenvolvimento full stack.
-              Transforma a dor do negócio em sistema que funciona de verdade — do backend ao dashboard.
-            </p>
-          </div>
-        </article>
-        <article class="team-card reveal">
-          <div class="team-photo">
-            <img src="img/victoria.jpeg" alt="Victoria — co-fundadora da TechLuvics" width="200" height="267" loading="lazy" />
-            <div class="team-fx" aria-hidden="true">
-              <span class="fx-eq eq1">Σ cost</span>
-              <span class="fx-eq eq2">v = dx/dt</span>
-              <span class="fx-eq eq3">P(A|B)</span>
-              <span class="fx-eq eq4">min f(x)</span>
-              <span class="fx-shape s-circle"></span>
-              <span class="fx-shape s-tri"></span>
-              <span class="fx-shape s-sq"></span>
-              <span class="fx-shape s-dot"></span>
-              <span class="fx-shape s-dot2"></span>
-            </div>
-          </div>
-          <div class="team-info">
-            <h3>Victoria</h3>
-            <p class="team-role">Engenheira Ambiental · Project Manager · Scrum Master</p>
-            <p class="team-bio">
-              Garante que o projeto caminhe com clareza: escopo, prazo e comunicação.
-              Do alinhamento inicial à entrega, organiza o processo para você não se perder no meio do caminho.
-            </p>
-          </div>
-        </article>
+        </div>
       </div>
-      <p class="team-footer reveal">
-        Tudo que a TechLuvics entrega passa pelas nossas mãos. Sem intermediários.
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contato -->
-  <section class="section section-alt" id="contato">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Fale conosco</span>
-        <h2>Vamos conversar</h2>
-        <p class="section-desc">Escolha o canal que preferir. Respondemos rápido.</p>
+    <!-- 7 · Outras soluções (triângulos flutuantes com nomes) -->
+    <section class="sec" id="solucoes" data-stage style="align-items:flex-start">
+      <div class="wrap">
+        <div class="sol-wrap">
+          <div class="sol-list">
+            <article class="sol rv"><svg class="tri" style="color:#67e8f9"><use href="#tri"/></svg><div><h3>CrediLuvics</h3><p>Gestão de crédito, custeio e financiamento para cooperativas de crédito rural — AgTech de verdade.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#2dd4bf"><use href="#tri"/></svg><div><h3>Controle de Estoque</h3><p>Sistema leve para pequenas lojas e minimercados: entradas, saídas, alertas de mínimo e relatórios claros.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#22d3ee"><use href="#tri"/></svg><div><h3>Barbearia Personalizada</h3><p>Agenda online, cadastro de clientes, serviços e histórico. Menos fila, mais organização e fidelização.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#a5f3fc"><use href="#tri"/></svg><div><h3>Petshop Personalizado</h3><p>Agenda de banhos e tosas, clientes e pets, lembretes e controle de serviços em um só lugar.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#38bdf8"><use href="#tri"/></svg><div><h3>Clínica Personalizada</h3><p>Agenda, prontuário eletrônico e módulo financeiro. Atendimento mais profissional e seguro.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#67e8f9"><use href="#tri"/></svg><div><h3>Oficina Smart</h3><p>Ordens de serviço, status em tempo real, peças e gestão de clientes para oficinas mecânicas.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#2dd4bf"><use href="#tri"/></svg><div><h3>Sistema para Advogados</h3><p>Gestão de processos, prazos, clientes e documentos. Organize o escritório sem planilha bagunçada.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#22d3ee"><use href="#tri"/></svg><div><h3>Gestão SaaS</h3><p>Painel de gestão para pequenas empresas: clientes, finanças e operações em formato SaaS sob medida.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#a5f3fc"><use href="#tri"/></svg><div><h3>AskMe</h3><p>Plataforma de perguntas e respostas para comunidades, suporte ou engajamento interno da sua equipe.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#38bdf8"><use href="#tri"/></svg><div><h3>Cardápio Virtual</h3><p>Cardápio digital com QR Code para cafeterias e restaurantes. Atualize preços e itens em segundos.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#67e8f9"><use href="#tri"/></svg><div><h3>Atendente de IA no WhatsApp</h3><p>Bot inteligente que responde clientes 24h, qualifica leads e agenda horários.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#2dd4bf"><use href="#tri"/></svg><div><h3>Preço que não dá prejuízo</h3><p>Análise financeira do seu negócio: descubra o preço certo para cobrir custos e lucrar.</p></div></article>
+            <article class="sol rv"><svg class="tri" style="color:#22d3ee"><use href="#tri"/></svg><div><h3>Plataforma de Rifas e Sorteios</h3><p>Sistema completo para criar, vender e gerenciar rifas e sorteios com transparência.</p></div></article>
+          </div>
+          <div class="sol-side">
+            <h2 class="display rv" style="font-size:clamp(38px,4.4vw,72px);letter-spacing:-.045em;line-height:1;margin-bottom:22px">Outras soluções</h2>
+            <p class="body rv d1">Temos sistemas já rodando em outros clientes. O que importa é o <span class="hl">seu</span> problema — site, automação ou algo que ainda nem imaginou.</p>
+            <p class="body rv d2">Não achou exatamente o que precisa? <span class="hl">Conte o seu problema.</span> Talvez a gente já tenha a solução — ou construa uma.</p>
+            <p class="rv d3" style="margin-top:22px"><a class="ghost" href="https://wa.me/5514996536743?text=Ol%C3%A1!%20Tenho%20um%20problema%20e%20quero%20saber%20se%20a%20TechLuvics%20consegue%20resolver." target="_blank" rel="noopener">Falar no WhatsApp →</a></p>
+          </div>
+        </div>
       </div>
-      <div class="contact-grid">
-        <a href="#" data-wa class="contact-card reveal" target="_blank" rel="noopener">
-          <div class="contact-icon">💬</div>
-          <h3>WhatsApp (principal)</h3>
-          <p>(14) 99653-6743</p>
-          <span class="contact-link">Abrir conversa →</span>
-        </a>
-        <a href="#" data-wa data-wa-phone="5516996098129" class="contact-card reveal" target="_blank" rel="noopener">
-          <div class="contact-icon">💬</div>
-          <h3>WhatsApp (secundário)</h3>
-          <p>(16) 99609-8129</p>
-          <span class="contact-link">Abrir conversa →</span>
-        </a>
-        <a href="mailto:techluvics@gmail.com" class="contact-card reveal">
-          <div class="contact-icon">✉️</div>
-          <h3>E-mail</h3>
-          <p>techluvics@gmail.com</p>
-          <span class="contact-link">Enviar e-mail →</span>
-        </a>
-        <a href="https://www.instagram.com/tech.luvics/" class="contact-card reveal" target="_blank" rel="noopener">
-          <div class="contact-icon">📸</div>
-          <h3>Instagram</h3>
-          <p>@tech.luvics</p>
-          <span class="contact-link">Ver perfil →</span>
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="#inicio" class="logo">
-          <span class="logo-icon">◆</span>
-          <span class="logo-text">Tech<span>Luvics</span></span>
-        </a>
-        <p>Soluções tecnológicas sob medida para quem precisa de resultado, não de complicação.</p>
+    <!-- 8 · Parceiros -->
+    <section class="sec" id="parceiros" data-stage>
+      <div class="wrap">
+        <div class="two">
+          <div>
+            <h2 class="display rv" style="font-size:clamp(34px,4vw,64px);letter-spacing:-.045em;line-height:1.02">Plataformas e assinaturas de parceiros</h2>
+          </div>
+          <div>
+            <p class="body rv">Além do sob medida, mantemos um catálogo de produtos digitais em vários setores. Todos os sites foram feitos pela TechLuvics.</p>
+            <ul class="catalog rv d1" aria-label="Segmentos do catálogo">
+              <li><span>AgTech</span><em>campo e crédito</em></li>
+              <li><span>Finanças</span><em>o dia a dia</em></li>
+              <li><span>Saúde</span><em>clínica e agenda</em></li>
+              <li><span>Varejo</span><em>balcão e estoque</em></li>
+              <li><span>Serviços</span><em>quem atende</em></li>
+              <li><span>Educação</span><em>aula e conteúdo</em></li>
+            </ul>
+            <p class="label rv d2" style="margin-bottom:10px">Ecossistema</p>
+            <p class="body rv d2"><span class="hl">Explore o catálogo Luvics.</span> Produtos de diversos segmentos, prontos para assinatura ou uso. Enquanto você descobre soluções de parceiros, vê na prática a qualidade do nosso trabalho.</p>
+            <p class="rv d3" style="margin-top:22px"><a class="ghost" href="https://luvics.com.br/" target="_blank" rel="noopener">Acessar luvics.com.br ↗</a></p>
+          </div>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#parceiros">Parceiros</a>
-        <a href="#faq">FAQ</a>
-        <a href="#equipe">Equipe</a>
-        <a href="#contato">Contato</a>
-        <a href="https://www.instagram.com/tech.luvics/" target="_blank" rel="noopener">Instagram</a>
-      </div>
-      <div class="footer-copy">
-        <p>© 2026 TechLuvics. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Floating WhatsApp -->
-  <a href="#" data-wa data-wa-msg="Olá! Vim pelo site da TechLuvics e quero saber mais." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <!-- 9 · FAQ -->
+    <section class="sec" id="faq" data-stage>
+      <div class="wrap">
+        <div class="faq-grid">
+          <div class="stick">
+            <h2 class="display rv" style="font-size:clamp(38px,4.4vw,72px);letter-spacing:-.045em;line-height:1">Perguntas frequentes</h2>
+          </div>
+          <div class="faq-list rv d1">
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Vocês só fazem os 15 sistemas listados?</span><i></i></button><div class="faq-a"><div><p>Não. Os 15 são exemplos de soluções que já entregamos e estão em uso. O foco é resolver o <em>seu</em> problema. Se precisar de um site, de uma automação específica ou de algo que não existe na lista, conversamos e avaliamos a viabilidade.</p></div></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Vocês só criam site ou também analisam o que eu já tenho?</span><i></i></button><div class="faq-a"><div><p>Também analisamos. Temos consultoria de presença digital para quem já tem site ou quer um diagnóstico antes de investir: se está só “bonito no ar” ou se realmente ajuda o cliente a te achar e falar com você. No site, o diagnóstico completo é sob consulta; em algumas campanhas ou indicações pode haver uma conversa introdutória mais curta.</p></div></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Como é definido o preço?</span><i></i></button><div class="faq-a"><div><p>O valor é baseado na complexidade do projeto: escopo, integrações, prazo e nível de customização. Depois da reunião de entendimento, enviamos uma proposta clara, sem surpresas.</p></div></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Quanto tempo leva para entregar?</span><i></i></button><div class="faq-a"><div><p>Depende do que for combinado. Um site simples pode sair em poucos dias; um sistema de gestão mais completo leva semanas. Sempre alinhamos o prazo antes de começar.</p></div></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>O suporte de 1 ano cobre o quê?</span><i></i></button><div class="faq-a"><div><p>Correções de bugs, dúvidas de uso e pequenos ajustes combinados. Não inclui novas funcionalidades grandes (essas viram novo escopo), mas você não fica sozinho depois da entrega.</p></div></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Preciso ter conhecimento técnico?</span><i></i></button><div class="faq-a"><div><p>Não. Nós cuidamos de tudo: desenvolvimento, orientação de hospedagem e domínio, e explicamos de forma simples como usar. Você só precisa contar o que o negócio precisa.</p></div></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Atendem só empresas grandes?</span><i></i></button><div class="faq-a"><div><p>Pelo contrário. Nosso público principal são pequenos empresários, autônomos e negócios locais que precisam de tecnologia prática e acessível — sem burocracia de grandes consultorias.</p></div></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Como começo?</span><i></i></button><div class="faq-a"><div><p>É só mandar uma mensagem no WhatsApp. Conta o que está precisando (mesmo que ainda esteja vago). A gente responde, marca a reunião e segue o processo juntos.</p></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · Contato (CTA final + rodapé) -->
+    <section class="sec final" id="contato" data-stage>
+      <div class="final-main">
+        <h2 class="rv">Vamos conversar</h2>
+        <p class="sub rv d1">Escolha o canal que preferir. Respondemos rápido.</p>
+        <a class="btn rv d2" href="https://wa.me/5514996536743?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TechLuvics%20e%20quero%20saber%20mais." target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <div class="contacts rv d3">
+          <a href="https://wa.me/5514996536743" target="_blank" rel="noopener"><small>WhatsApp (principal)</small><span>(14) 99653-6743</span></a>
+          <a href="https://wa.me/5516996098129" target="_blank" rel="noopener"><small>WhatsApp (secundário)</small><span>(16) 99609-8129</span></a>
+          <a href="mailto:techluvics@gmail.com"><small>E-mail</small><span>techluvics@gmail.com</span></a>
+          <a href="https://www.instagram.com/tech.luvics/" target="_blank" rel="noopener"><small>Instagram</small><span>@tech.luvics</span></a>
+        </div>
+      </div>
+      <footer>
+        <div>© 2026 TechLuvics. Todos os direitos reservados.<span class="tag">Soluções tecnológicas sob medida para quem precisa de resultado, não de complicação.</span></div>
+        <nav class="fl" aria-label="Rodapé">
+          <a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#parceiros">Parceiros</a><a href="#faq">FAQ</a><a href="#equipe">Equipe</a><a href="#contato">Contato</a>
+        </nav>
+        <div class="fr"><a href="https://www.instagram.com/tech.luvics/" target="_blank" rel="noopener">Instagram</a></div>
+      </footer>
+    </section>
+  </main>
+
+  <a class="wa-float" href="https://wa.me/5514996536743?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TechLuvics%20e%20quero%20saber%20mais." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
   <script src="js/script.js"></script>
