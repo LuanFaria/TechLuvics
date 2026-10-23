@@ -45,6 +45,108 @@
 })();
 
 /* =====================================================================
+   Galeria "Sites desenvolvidos": accordion horizontal
+   hover/foco/toque expande · arrastar · pontinhos · troca automática
+===================================================================== */
+(function(){
+  'use strict';
+  var rail=document.getElementById('sitesRail'); if(!rail)return;
+  var cards=Array.prototype.slice.call(rail.querySelectorAll('.site'));
+  var dots=Array.prototype.slice.call(document.querySelectorAll('#sitesDots .sites-dot'));
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur=0, hoverT=null, autoT=null, paused=false, visible=false, userTouched=false;
+
+  function scrollable(){return rail.scrollWidth>rail.clientWidth+2}
+  function setActive(i,fromUser){
+    if(i<0||i>=cards.length)return;
+    cur=i;
+    cards.forEach(function(c,k){c.classList.toggle('is-active',k===i);c.style.setProperty('--d',Math.abs(k-i));c.tabIndex=0});
+    dots.forEach(function(d,k){d.classList.toggle('on',k===i)});
+    if(scrollable()){
+      centerActive(reduce?'auto':'smooth');
+      clearTimeout(setActive._t);
+      setActive._t=setTimeout(function(){centerActive(reduce?'auto':'smooth')},780); /* correção após a animação */
+    }
+  }
+  /* posição final do card ativo calculada sem esperar a animação terminar */
+  var probe=document.createElement('i');
+  probe.style.cssText='position:absolute;visibility:hidden;pointer-events:none;height:0;width:var(--wc)';
+  rail.appendChild(probe);
+  function centerActive(behavior){
+    var track=rail.firstElementChild,cs=getComputedStyle(track),
+        gap=parseFloat(cs.columnGap)||0,padL=parseFloat(cs.paddingLeft)||0,
+        wc=probe.offsetWidth,wo=cards[cur].querySelector('.site-over').offsetWidth,
+        left=padL+cur*(wc+gap),target=left-(rail.clientWidth-wo)/2,
+        max=padL+(cards.length-1)*(wc+gap)+wo+(parseFloat(cs.paddingRight)||0)-rail.clientWidth;
+    rail.scrollTo({left:Math.max(0,Math.min(target,max)),behavior:behavior});
+  }
+  function refreshScrollClass(){rail.classList.toggle('can-scroll',scrollable())}
+
+  /* hover (só mouse) com pequena intenção para evitar "tremedeira" */
+  cards.forEach(function(c,i){
+    c.addEventListener('pointerenter',function(e){
+      if(e.pointerType!=='mouse'||drag.on)return;
+      pause();clearTimeout(hoverT);hoverT=setTimeout(function(){setActive(i)},70);
+    });
+    c.addEventListener('pointerleave',function(){clearTimeout(hoverT)});
+    c.addEventListener('focusin',function(){if(cur!==i)setActive(i,true)});
+    /* 1º toque expande, 2º abre o site */
+    c.addEventListener('click',function(e){
+      if(drag.moved){e.preventDefault();return}
+      if(!c.classList.contains('is-active')){e.preventDefault();setActive(i,true)}
+    });
+  });
+  dots.forEach(function(d,i){d.addEventListener('click',function(){userTouched=true;pause();setActive(i,true)})});
+
+  /* arrastar com o mouse (toque usa a rolagem nativa) */
+  var drag={on:false,moved:false,x:0,l:0};
+  rail.addEventListener('pointerdown',function(e){
+    if(e.pointerType!=='mouse'||e.button!==0||!scrollable())return;
+    drag.on=true;drag.moved=false;drag.x=e.clientX;drag.l=rail.scrollLeft;
+  });
+  window.addEventListener('pointermove',function(e){
+    if(!drag.on)return;
+    var dx=e.clientX-drag.x;
+    if(!drag.moved&&Math.abs(dx)>5){drag.moved=true;rail.classList.add('drag')}
+    if(drag.moved)rail.scrollLeft=drag.l-dx;
+  });
+  function endDrag(){
+    if(!drag.on)return; drag.on=false; rail.classList.remove('drag');
+    setTimeout(function(){drag.moved=false},0);
+  }
+  window.addEventListener('pointerup',endDrag);
+  window.addEventListener('pointercancel',endDrag);
+  rail.addEventListener('dragstart',function(e){e.preventDefault()});
+  rail.addEventListener('touchstart',function(){userTouched=true;pause()},{passive:true});
+  rail.addEventListener('wheel',function(){pause()},{passive:true});
+
+  /* troca automática enquanto ninguém interage */
+  function tick(){
+    if(reduce||paused||!visible||document.hidden)return;
+    setActive((cur+1)%cards.length);
+  }
+  function play(){clearInterval(autoT);if(!reduce)autoT=setInterval(tick,4200)}
+  function pause(){paused=true;clearInterval(autoT)}
+  rail.addEventListener('pointerleave',function(e){
+    if(e.pointerType==='mouse'&&!userTouched){clearTimeout(hoverT);setTimeout(function(){paused=false;play()},2500)}
+  });
+
+  /* entra na tela: animação de entrada + liga o autoplay */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        visible=e.isIntersecting;
+        if(visible){rail.classList.add('is-in');refreshScrollClass()}
+      });
+    },{threshold:.35}).observe(rail);
+  } else {visible=true;rail.classList.add('is-in')}
+
+  window.addEventListener('resize',function(){refreshScrollClass();setActive(cur,true)});
+  window.addEventListener('load',refreshScrollClass);
+  setActive(0,true); refreshScrollClass(); play();
+})();
+
+/* =====================================================================
    Fundo de partículas WebGL — triângulos que se transformam no scroll
    cérebro → nuvem → lâmpada → globo → nuvem → forma final
 ===================================================================== */
