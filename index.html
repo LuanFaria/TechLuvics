@@ -244,71 +244,74 @@
       </div>
     </section>
 
-    <!-- Sites desenvolvidos (galeria interativa) -->
+    <!-- Sites desenvolvidos (leque de cartas) -->
     <section class="sec" id="sites" data-stage>
       <div class="wrap">
         <div class="sites-head">
           <p class="label rv">Portfólio</p>
           <h2 class="display rv d1" style="font-size:clamp(36px,4.2vw,68px);letter-spacing:-.045em;line-height:1">Sites desenvolvidos</h2>
-          <p class="body rv d2" style="margin-top:18px;max-width:520px">Veja na prática o nosso trabalho. Passe o mouse (ou deslize) para explorar e clique para abrir o site ao vivo.</p>
+          <p class="body rv d2" style="margin-top:18px;max-width:520px">Veja na prática o nosso trabalho. Arraste ou toque nos cards para navegar e abra o site ao vivo.</p>
         </div>
-        <div class="sites-rail" id="sitesRail" aria-label="Galeria de sites desenvolvidos">
-          <div class="sites-track">
-          <a class="site" style="--i:1" href="https://pdl.luvics.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Limpeza de Ar Automotivo">
-            <div class="shot" data-ini="Limpeza de Ar Automotivo"><img src="img/paulo.png" alt="Site Limpeza de Ar Automotivo" loading="lazy" draggable="false" /></div>
-            <span class="site-tag">Limpeza de Ar Automotivo</span>
-            <div class="site-over">
-              <span class="site-kind">Landing page</span>
-              <h3>Limpeza de Ar Automotivo</h3>
-              <p>Site de divulgação do serviço de limpeza de ar automotivo, com chamada direta para o WhatsApp.</p>
-              <div class="site-row"><span class="site-dom">pdl.luvics.com.br/</span><span class="site-cta">Abrir site ↗</span></div>
-            </div>
-          </a>
-           <a class="site is-active" style="--i:0" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener" aria-label="Abrir site Pack Autoral">
+        <div class="fan" id="sitesFan" role="region" aria-roledescription="carrossel" aria-label="Sites desenvolvidos">
+          <div class="fan-stage" id="fanStage">
+          <a class="site" href="https://luvics.com.br/pack_autoral/" target="_blank" rel="noopener" aria-label="Abrir site Pack Autoral">
             <div class="shot" data-ini="Pack Autoral"><img src="img/packautoral.png" alt="Site Pack Autoral" loading="lazy" draggable="false" /></div>
             <span class="site-tag">Pack Autoral</span>
-            <div class="site-over">
+            <div class="site-over" hidden>
               <span class="site-kind">Landing page</span>
               <h3>Pack Autoral</h3>
               <p>Página de apresentação e divulgação do Pack Autoral, pensada para gerar contato.</p>
-              <div class="site-row"><span class="site-dom">luvics.com.br/pack_autoral</span><span class="site-cta">Abrir site ↗</span></div>
+              <span class="site-dom">luvics.com.br/pack_autoral</span>
             </div>
           </a>
-          <a class="site" style="--i:2" href="https://luvics.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Luvics Demonstrações">
+          <a class="site" href="https://pdl.luvics.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Limpeza de Ar Automotivo">
+            <div class="shot" data-ini="Limpeza de Ar Automotivo"><img src="img/paulo.png" alt="Site Limpeza de Ar Automotivo" loading="lazy" draggable="false" /></div>
+            <span class="site-tag">Limpeza de Ar Automotivo</span>
+            <div class="site-over" hidden>
+              <span class="site-kind">Landing page</span>
+              <h3>Limpeza de Ar Automotivo</h3>
+              <p>Site de divulgação do serviço de limpeza de ar automotivo, com chamada direta para o WhatsApp.</p>
+              <span class="site-dom">pdl.luvics.com.br</span>
+            </div>
+          </a>
+          <a class="site" href="https://luvics.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Luvics Demonstrações">
             <div class="shot" data-ini="Luvics Demonstrações"><img src="img/luvi.png" alt="Site Luvics" loading="lazy" draggable="false" /></div>
             <span class="site-tag">Luvics Demonstrações</span>
-            <div class="site-over">
+            <div class="site-over" hidden>
               <span class="site-kind">Catálogo</span>
               <h3>Luvics Demonstrações</h3>
               <p>Catálogo com demonstrações dos produtos digitais e sistemas da Luvics.</p>
-              <div class="site-row"><span class="site-dom">luvics.com.br</span><span class="site-cta">Abrir site ↗</span></div>
+              <span class="site-dom">luvics.com.br</span>
             </div>
           </a>
-          <a class="site" style="--i:3" href="https://precify.luanfari.workers.dev/" target="_blank" rel="noopener" aria-label="Abrir site Precify">
+          <a class="site" href="https://precify.luanfari.workers.dev/" target="_blank" rel="noopener" aria-label="Abrir site Precify">
             <div class="shot" data-ini="Precify"><img src="img/precify.png" alt="Site Precify" loading="lazy" draggable="false" /></div>
             <span class="site-tag">Precify</span>
-            <div class="site-over">
+            <div class="site-over" hidden>
               <span class="site-kind">Ferramenta web</span>
               <h3>Precify</h3>
               <p>Ferramenta para descobrir o preço certo e não ter prejuízo.</p>
-              <div class="site-row"><span class="site-dom">precify.luanfari.workers.dev</span><span class="site-cta">Abrir site ↗</span></div>
+              <span class="site-dom">precify.luanfari.workers.dev</span>
             </div>
           </a>
-          <a class="site" style="--i:4" href="https://cafune.luvics.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Cafuné Pet">
+          <a class="site" href="https://cafune.luvics.com.br/" target="_blank" rel="noopener" aria-label="Abrir site Cafuné Pet">
             <div class="shot" data-ini="Cafuné Pet"><img src="img/cafune.png" alt="Site Cafuné Pet" loading="lazy" draggable="false" /></div>
             <span class="site-tag">Cafuné Pet</span>
-            <div class="site-over">
+            <div class="site-over" hidden>
               <span class="site-kind">Site institucional</span>
               <h3>Cafuné Pet</h3>
               <p>Site institucional para pet shop, com serviços e contato rápido.</p>
-              <div class="site-row"><span class="site-dom">cafune.luvics.com.br</span><span class="site-cta">Abrir site ↗</span></div>
+              <span class="site-dom">cafune.luvics.com.br</span>
             </div>
           </a>
           </div>
-        </div>
-        <div class="sites-ctrl">
-          <div class="sites-dots" id="sitesDots"><button type="button" class="sites-dot on" aria-label="Ver Pack Autoral"></button><button type="button" class="sites-dot" aria-label="Ver Limpeza de Ar Automotivo"></button><button type="button" class="sites-dot" aria-label="Ver Luvics Demonstrações"></button><button type="button" class="sites-dot" aria-label="Ver Precify"></button><button type="button" class="sites-dot" aria-label="Ver Cafuné Pet"></button></div>
-          <span class="sites-hint" aria-hidden="true">arraste ↔</span>
+          <div class="fan-info" id="fanInfo" aria-live="polite"></div>
+          <div class="fan-ctrl">
+            <button type="button" class="fan-btn" id="fanPrev" aria-label="Site anterior">‹</button>
+            <button type="button" class="fan-btn fan-play" id="fanPlay" aria-label="Pausar troca automática" aria-pressed="true"><i></i></button>
+            <button type="button" class="fan-btn" id="fanNext" aria-label="Próximo site">›</button>
+            <span class="fan-count" id="fanCount" aria-hidden="true">1 / 5</span>
+          </div>
         </div>
       </div>
     </section>
